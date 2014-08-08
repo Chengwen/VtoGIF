@@ -11,6 +11,7 @@
 # Generated files
 bin/
 gen/
+android-ffmpeg-java-master/
 
 # Gradle files
 .gradle/
