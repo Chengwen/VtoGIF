@@ -12,6 +12,7 @@
 bin/
 gen/
 android-ffmpeg-java-master/
+appcompat_v7_3/
 
 # Gradle files
 .gradle/
