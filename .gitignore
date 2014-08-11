@@ -11,6 +11,7 @@
 # Generated files
 bin/
 gen/
+obj/
 android-ffmpeg-java-master/
 appcompat_v7_3/
 
