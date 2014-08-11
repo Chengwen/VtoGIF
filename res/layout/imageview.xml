@@ -10,7 +10,21 @@
                 android:layout_gravity="center"
                 android:layout_width="640dp"
                 android:layout_height="640dp"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 
                 />
+        
+        <ImageView
+            android:id="@+id/btn_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:maxHeight="150dp"
+            android:maxWidth="150dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/share_button" />
+        
 </FrameLayout>
