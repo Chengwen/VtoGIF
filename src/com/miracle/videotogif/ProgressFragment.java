@@ -31,7 +31,7 @@ public class ProgressFragment extends Fragment {
         final Runnable r = new Runnable() {
 			public void run() {
 				int lastPrecent=-1;
-				while(MenuActivity.clip.convertStatus==Clip.CONVERTING) {
+				while(MenuActivity.clip.convertStatus<=Clip.CONVERTING) {
 					if(lastPrecent!=MenuActivity.clip.convertPrecent)
 					{
 						lastPrecent=MenuActivity.clip.convertPrecent;

@@ -28,23 +28,6 @@
             android:src="@drawable/selectbutton" />
         
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" 1. Swipe right/left to open menu"
-                android:id="@+id/textView" android:layout_gravity="center" android:clickable="false"
-                android:textColor="#ffacacac" android:textSize="17sp" android:padding="5dp"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_selector"
-                android:textColor="@android:color/white"
-                android:text="2. Click me to open menu"
-                android:textSize="17sp"
-                android:padding="12dp"
-                android:id="@+id/btn_open_menu"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"/>
 
     </LinearLayout>
 
