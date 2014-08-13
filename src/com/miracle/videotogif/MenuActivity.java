@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -24,11 +25,13 @@ VideoFragment.OnVideoSelectedListener{
 
     private ResideMenu resideMenu;
     private ResideMenuItem itemHome;
-    private ResideMenuItem itemProfile;
+    private ResideMenuItem itemVideo;
+    private ResideMenuItem itemImages;
     private ResideMenuItem itemCalendar;
     private ResideMenuItem itemSettings;
     public static MenuActivity mContext;
     public static Clip clip=new Clip();
+    public static String videoURL=null;
     
 
     /**
@@ -40,8 +43,8 @@ VideoFragment.OnVideoSelectedListener{
         setContentView(R.layout.main);
         mContext = this;
         setUpMenu();
-        changeFragment(new VideoFragment());
-        //changeFragment(new HomeFragment());
+        //changeFragment(new VideoFragment());
+        changeFragment(new HomeFragment());
     }
 
     private void setUpMenu() {
@@ -56,17 +59,20 @@ VideoFragment.OnVideoSelectedListener{
 
         // create menu items;
         itemHome     = new ResideMenuItem(this, R.drawable.icon_home,     "Home");
-        itemProfile  = new ResideMenuItem(this, R.drawable.icon_profile,  "Profile");
+        itemVideo  = new ResideMenuItem(this, R.drawable.icon_profile,  "Videos");
+        itemImages  = new ResideMenuItem(this, R.drawable.icon_profile,  "Images");
         itemCalendar = new ResideMenuItem(this, R.drawable.icon_calendar, "Progress");
         itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, "Settings");
 
         itemHome.setOnClickListener(this);
-        itemProfile.setOnClickListener(this);
+        itemVideo.setOnClickListener(this);
+        itemImages.setOnClickListener(this);
         itemCalendar.setOnClickListener(this);
         itemSettings.setOnClickListener(this);
 
         resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemProfile, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemVideo, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemImages, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemCalendar, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemSettings, ResideMenu.DIRECTION_LEFT);
 
@@ -92,10 +98,14 @@ VideoFragment.OnVideoSelectedListener{
         if (view == itemHome){
             changeFragment(new HomeFragment());
             t.setText("HOME");
-        }else if (view == itemProfile){
+        }else if (view == itemVideo){
             t.setText("Videos");
             //changeFragment(new ImageViewFragment());
-            changeFragment(new VideoViewFragment());
+            changeFragment(new VideoFragment());
+        }else if (view == itemImages){
+            t.setText("Images");
+            //changeFragment(new ImageViewFragment());
+            changeFragment(new ImageFragment());
         }else if (view == itemCalendar){
             t.setText("Calendar");
             changeFragment(new ProgressFragment());
@@ -156,11 +166,15 @@ VideoFragment.OnVideoSelectedListener{
 
 	@Override
 	public void onVideoSelected(int count){
-		if(count != 0){
-		//	((TextView) mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title)).setText(getResources().getString(R.string.videos_tab) + "  "  + count);
 
-		}else{
-		//	((TextView)mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title)).setText(getResources().getString(R.string.video));
+		android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+		VideoFragment videoFragment = (VideoFragment) fragmentManager.findFragmentByTag("fragment");
+
+		if(videoFragment.getSelectedVideoList() != null && videoFragment.getSelectedVideoList() .size() > 0){
+
+			Log.d("selected Videos",videoFragment.getSelectedVideoList().get(0));
+			MenuActivity.videoURL=videoFragment.getSelectedVideoList().get(0);
+			changeFragment(new VideoViewFragment());
 		}
 	}
 }
