@@ -26,8 +26,12 @@
             android:maxWidth="150dp"
             android:scaleType="fitStart"
             android:src="@drawable/selectbutton" />
-        
 
+        <Button
+            android:id="@+id/fileButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
 
     </LinearLayout>
 

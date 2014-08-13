@@ -24,7 +24,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.learnncode.mediachooser.activity.HomeFragmentActivity;
 import com.miracle.videotogif.ResideMenu.*;
+import com.miracle.videotogif.show.ShowVideo;
 
 public class HomeFragment extends Fragment {
 
@@ -58,6 +60,18 @@ public class HomeFragment extends Fragment {
 					}
 				});
 
+
+		parentView.findViewById(R.id.fileButton).setOnClickListener(
+				new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+
+						Intent intent = new Intent(MenuActivity.mContext, HomeFragmentActivity.class);
+						startActivity(intent);
+						Log.d("1", "ok");
+
+					}
+				});
 	}
 
 	@Override
