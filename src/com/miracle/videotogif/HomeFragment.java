@@ -68,8 +68,6 @@ public class HomeFragment extends Fragment {
 
 						Intent intent = new Intent(MenuActivity.mContext, HomeFragmentActivity.class);
 						startActivity(intent);
-						Log.d("1", "ok");
-
 					}
 				});
 	}
