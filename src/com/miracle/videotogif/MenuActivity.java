@@ -11,12 +11,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.learnncode.mediachooser.fragment.ImageFragment;
+import com.learnncode.mediachooser.fragment.VideoFragment;
 import com.miracle.videotogif.ResideMenu.ResideMenu;
 import com.miracle.videotogif.ResideMenu.ResideMenuItem;
 
 
 
-public class MenuActivity extends FragmentActivity implements View.OnClickListener{
+public class MenuActivity extends FragmentActivity implements View.OnClickListener, ImageFragment.OnImageSelectedListener, 
+VideoFragment.OnVideoSelectedListener{
 
     private ResideMenu resideMenu;
     private ResideMenuItem itemHome;
@@ -36,7 +40,8 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         setContentView(R.layout.main);
         mContext = this;
         setUpMenu();
-        changeFragment(new HomeFragment());
+        changeFragment(new VideoFragment());
+        //changeFragment(new HomeFragment());
     }
 
     private void setUpMenu() {
@@ -126,4 +131,35 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     public ResideMenu getResideMenu(){
         return resideMenu;
     }
+    
+
+	@Override
+	public void onImageSelected(int count) {
+	/*	if( mTabHost.getTabWidget().getChildAt(1) != null){
+			if(count != 0){
+				((TextView) mTabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title)).setText(getResources().getString(R.string.images_tab) + "  " + count);
+
+			}else{
+				((TextView)mTabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title)).setText(getResources().getString(R.string.image));
+			}
+		}else {
+			if(count != 0){
+				((TextView) mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title)).setText(getResources().getString(R.string.images_tab) + "  "  + count);
+
+			}else{
+				((TextView)mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title)).setText(getResources().getString(R.string.image));
+			}
+		}*/
+	}
+
+
+	@Override
+	public void onVideoSelected(int count){
+		if(count != 0){
+		//	((TextView) mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title)).setText(getResources().getString(R.string.videos_tab) + "  "  + count);
+
+		}else{
+		//	((TextView)mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title)).setText(getResources().getString(R.string.video));
+		}
+	}
 }
