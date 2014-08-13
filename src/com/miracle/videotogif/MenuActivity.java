@@ -93,8 +93,9 @@ VideoFragment.OnVideoSelectedListener{
             changeFragment(new HomeFragment());
             t.setText("HOME");
         }else if (view == itemProfile){
-            t.setText("Profile");
-            changeFragment(new ImageViewFragment());
+            t.setText("Videos");
+            //changeFragment(new ImageViewFragment());
+            changeFragment(new VideoViewFragment());
         }else if (view == itemCalendar){
             t.setText("Calendar");
             changeFragment(new ProgressFragment());
