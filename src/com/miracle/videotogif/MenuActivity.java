@@ -95,23 +95,17 @@ VideoFragment.OnVideoSelectedListener{
 
     @Override
     public void onClick(View view) {
-    	TextView t=(TextView)findViewById(R.id.title_bar);
         if (view == itemHome){
-            changeFragment(new HomeFragment());
-            t.setText(R.string.home);
+            changeFragment(new HomeFragment(),R.string.home);
         }else if (view == itemVideo){
-            t.setText(R.string.video);
             //changeFragment(new ImageViewFragment());
-            changeFragment(new VideoFragment());
+            changeFragment(new VideoFragment(),R.string.video);
         }else if (view == itemImages){
-            t.setText(R.string.image);
             //changeFragment(new ImageViewFragment());
-            changeFragment(new ImageFragment());
+            changeFragment(new ImageFragment(),R.string.image);
         }else if (view == itemCalendar){
-            t.setText("Calendar");
             changeFragment(new ProgressFragment());
         }else if (view == itemSettings){
-            t.setText("Setting");
             changeFragment(new SettingsFragment());
         }
 		
@@ -140,7 +134,7 @@ VideoFragment.OnVideoSelectedListener{
                 .commit();
     }
     
-    public void changeFragment(Fragment targetFragment,String title){
+    public void changeFragment(Fragment targetFragment,int title){
     	TextView t=(TextView)findViewById(R.id.title_bar);
     	 t.setText(title);
     	changeFragment( targetFragment);

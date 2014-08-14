@@ -54,10 +54,9 @@ public class HomeFragment extends Fragment {
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
-						TextView t=(TextView)parentView.findViewById(R.id.title_bar);
-						t.setText("Video");
 						
-						MenuActivity.mContext.changeFragment(new VideoFragment());
+						
+						MenuActivity.mContext.changeFragment(new VideoFragment(),R.string.video);
 /*
 						//select video by system
 						 Intent pickMedia = new Intent(
