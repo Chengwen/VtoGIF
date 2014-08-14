@@ -24,8 +24,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,6 +104,7 @@ public class ImageFragment extends Fragment {
 
 	private void initPhoneImages(String bucketName){
 		try {
+			Log.d("bucketName",bucketName);
 			final String orderBy = MediaStore.Images.Media.DATE_TAKEN;
 			String searchParams = null;
 			String bucket = bucketName;
@@ -116,6 +120,20 @@ public class ImageFragment extends Fragment {
 	}
 
 	private void initPhoneImages() {
+		/*String outputPath = PreferenceManager
+				.getDefaultSharedPreferences(
+						getActivity().getApplicationContext())
+				.getString(
+						"outputPath",
+						getActivity().getApplicationContext()
+								.getExternalFilesDir(
+										Environment
+												.getDataDirectory()
+												.getAbsolutePath())
+								.getAbsolutePath());
+
+		initPhoneImages(outputPath);
+		*/
 		try {
 			final String orderBy = MediaStore.Images.Media.DATE_TAKEN;
 			final String[] columns = { MediaStore.Images.Media.DATA, MediaStore.Images.Media._ID};
