@@ -59,23 +59,23 @@ VideoFragment.OnVideoSelectedListener{
         resideMenu.setScaleValue(0.6f);
 
         // create menu items;
-        itemHome     = new ResideMenuItem(this, R.drawable.icon_home,     "Home");
-        itemVideo  = new ResideMenuItem(this, R.drawable.icon_profile,  "Videos");
-        itemImages  = new ResideMenuItem(this, R.drawable.icon_profile,  "Images");
-        itemCalendar = new ResideMenuItem(this, R.drawable.icon_calendar, "Progress");
-        itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, "Settings");
+        itemHome     = new ResideMenuItem(this, R.drawable.icon_home,    R.string.home);
+        itemVideo  = new ResideMenuItem(this, R.drawable.icon_video,  R.string.video);
+        itemImages  = new ResideMenuItem(this, R.drawable.icon_image,  R.string.image);
+        //itemCalendar = new ResideMenuItem(this, R.drawable.icon_calendar, "Progress");
+        //itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, "Settings");
 
         itemHome.setOnClickListener(this);
         itemVideo.setOnClickListener(this);
         itemImages.setOnClickListener(this);
-        itemCalendar.setOnClickListener(this);
-        itemSettings.setOnClickListener(this);
+        //itemCalendar.setOnClickListener(this);
+        //itemSettings.setOnClickListener(this);
 
         resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemVideo, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemImages, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemCalendar, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemSettings, ResideMenu.DIRECTION_LEFT);
+        //resideMenu.addMenuItem(itemCalendar, ResideMenu.DIRECTION_LEFT);
+        //resideMenu.addMenuItem(itemSettings, ResideMenu.DIRECTION_LEFT);
 
         // You can disable a direction by setting ->
         resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
@@ -98,7 +98,7 @@ VideoFragment.OnVideoSelectedListener{
     	TextView t=(TextView)findViewById(R.id.title_bar);
         if (view == itemHome){
             changeFragment(new HomeFragment());
-            t.setText("HOME");
+            t.setText("Home");
         }else if (view == itemVideo){
             t.setText("Videos");
             //changeFragment(new ImageViewFragment());

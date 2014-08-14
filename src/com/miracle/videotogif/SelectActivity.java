@@ -32,7 +32,7 @@ private MediaScannerConnection conn;
 @Override
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.show_pic);
+    //setContentView(R.layout.show_pic);
     Log.d("error","1");
     File folder = new File(Environment.getDataDirectory().getPath());
     Log.d("error","2");
@@ -54,13 +54,13 @@ public void onCreate(Bundle savedInstanceState) {
 
     Log.d("error","5");
     Log.d("SCAN PATH", "Scan Path " + SCAN_PATH);
-    Button scanBtn = (Button)findViewById(R.id.scanBtn);
+    /*Button scanBtn = (Button)findViewById(R.id.scanBtn);
     scanBtn.setOnClickListener(new OnClickListener(){
     @Override
     public void onClick(View v) {
         startScan();
     }
-    });
+    });*/
     }
     private void startScan()
     {
