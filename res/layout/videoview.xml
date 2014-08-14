@@ -10,37 +10,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:layout_centerVertical="true"
-     android:orientation="vertical">
-
-        <VideoView
-            android:id="@+id/videoView1"
-            android:layout_width="fill_parent"
-            android:layout_height="400dp"
-            android:layout_gravity="center"
-            android:gravity="center" />
-        
-     <MediaController
-         android:id="@+id/mediaController1"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content" >
-     </MediaController>
-        
-		</LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" 
-        android:layout_alignParentBottom="true"
-        android:background="#F2F2F2">
-
-        <Button
-            android:id="@+id/convert"
-            android:layout_width="fill_parent"
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,7 +17,7 @@
             android:orientation="vertical" >
 
             <VideoView
-                android:id="@+id/videoView1"
+                android:id="@+idideoView1"
                 android:layout_width="fill_parent"
                 android:layout_height="400dp"
                 android:layout_gravity="center"
