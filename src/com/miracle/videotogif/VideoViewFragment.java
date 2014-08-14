@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.VideoView;
@@ -71,7 +72,7 @@ public class VideoViewFragment extends Fragment {
 
 						if(MenuActivity.videoURL==null)
 							return;
-
+						
 						
 						MenuActivity.clip = new Clip();
 						MenuActivity.clip.path =MenuActivity.videoURL;
@@ -80,7 +81,11 @@ public class VideoViewFragment extends Fragment {
 
 						//show progress wheel
 						pw_spinner = (ProgressWheel) parentView.findViewById(R.id.pw_spinner);
-
+						pw_spinner.setVisibility(0);
+						ImageView imageView=(ImageView) parentView.findViewById(R.id.imageMask);
+						imageView.setVisibility(0);
+						videoView1.stopPlayback();
+						
 				        final Runnable r = new Runnable() {
 							public void run() {
 								int lastPrecent=-1;
