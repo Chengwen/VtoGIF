@@ -11,6 +11,7 @@ import android.graphics.Canvas;
 import android.graphics.Movie;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 
@@ -99,13 +100,14 @@ public class GifMovieView extends View {
 		requestLayout();
 	}
 	public void setMovieResource(String movie){
+		Log.d("setMovieResource",movie);
 		 File file = new File(movie);
 		
 		try {
 			mMovie = Movie.decodeStream(new FileInputStream(file));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.toString();
 		}
 		requestLayout();
 	}
