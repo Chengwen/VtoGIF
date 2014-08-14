@@ -5,24 +5,53 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-        <com.miracle.videotogif.GifMovieView
+        <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical" >
+
+            <com.miracle.videotogif.GifMovieView
                 android:id="@+id/gifimage"
                 android:layout_gravity="center"
                 android:layout_width="640dp"
                 android:layout_height="640dp"
                 android:scaleType="fitCenter"/>
-        
-        <ImageView
-            android:id="@+id/btn_share"
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginBottom="15dp"
-            android:adjustViewBounds="true"
-            android:clickable="true"
-            android:maxHeight="150dp"
-            android:maxWidth="150dp"
-            android:scaleType="fitStart"
-            android:src="@drawable/share_button" />
+            android:layout_alignParentBottom="true"
+            android:background="#F2F2F2"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/delete"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:background="@android:color/transparent"
+                android:paddingLeft="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/delete" />
+            
+             <ImageButton
+                 android:id="@+id/share"
+                 android:layout_width="50dip"
+                 android:layout_height="50dip"
+                 android:layout_alignParentRight="true"
+                 android:background="@android:color/transparent"
+                 android:paddingRight="10dp"
+                 android:scaleType="centerInside"
+                 android:src="@drawable/sharebutton" />
+
+             </RelativeLayout>
+
+    </RelativeLayout>
         
 </FrameLayout>

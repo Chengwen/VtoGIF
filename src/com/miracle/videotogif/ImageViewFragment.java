@@ -28,7 +28,7 @@ public class ImageViewFragment extends Fragment {
 
     	
     	//share button listener
-		parentView.findViewById(R.id.btn_share).setOnClickListener(
+		parentView.findViewById(R.id.share).setOnClickListener(
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
