@@ -32,6 +32,7 @@ VideoFragment.OnVideoSelectedListener{
     public static MenuActivity mContext;
     public static Clip clip=new Clip();
     public static String videoURL=null;
+    public static String imageURL=null;
     
 
     /**
@@ -53,7 +54,7 @@ VideoFragment.OnVideoSelectedListener{
         resideMenu = new ResideMenu(this);
         resideMenu.setBackground(R.drawable.menu_background);
         resideMenu.attachToActivity(this);
-        resideMenu.setMenuListener(menuListener);
+        //resideMenu.setMenuListener(menuListener);
         //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip. 
         resideMenu.setScaleValue(0.6f);
 
@@ -146,21 +147,17 @@ VideoFragment.OnVideoSelectedListener{
 
 	@Override
 	public void onImageSelected(int count) {
-	/*	if( mTabHost.getTabWidget().getChildAt(1) != null){
-			if(count != 0){
-				((TextView) mTabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title)).setText(getResources().getString(R.string.images_tab) + "  " + count);
 
-			}else{
-				((TextView)mTabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title)).setText(getResources().getString(R.string.image));
-			}
-		}else {
-			if(count != 0){
-				((TextView) mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title)).setText(getResources().getString(R.string.images_tab) + "  "  + count);
+		android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+		ImageFragment imageFragment = (ImageFragment) fragmentManager.findFragmentByTag("fragment");
 
-			}else{
-				((TextView)mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title)).setText(getResources().getString(R.string.image));
-			}
-		}*/
+		if(imageFragment.getSelectedImageList() != null && imageFragment.getSelectedImageList() .size() > 0){
+
+			Log.d("selected imageURL",imageFragment.getSelectedImageList().get(0));
+			MenuActivity.imageURL=imageFragment.getSelectedImageList().get(0);
+			
+			changeFragment(new ImageViewFragment());
+		}
 	}
 
 

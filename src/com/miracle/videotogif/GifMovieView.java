@@ -105,7 +105,7 @@ public class GifMovieView extends View {
 		
 		try {
 			mMovie = Movie.decodeStream(new FileInputStream(file));
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.toString();
 		}
