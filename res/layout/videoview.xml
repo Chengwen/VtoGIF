@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -41,16 +41,69 @@
         <Button
             android:id="@+id/convert"
             android:layout_width="fill_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@android:color/transparent"
-            android:text="@string/convert"
-            android:textColor="#006699"
-            android:textSize="26sp" />
+            android:layout_centerVertical="true"
+            android:orientation="vertical" >
 
-		</LinearLayout>
+            <VideoView
+                android:id="@+id/videoView1"
+                android:layout_width="fill_parent"
+                android:layout_height="400dp"
+                android:layout_gravity="center"
+                android:gravity="center" />
+
+            <MediaController
+                android:id="@+id/mediaController1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+            </MediaController>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#F2F2F2"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/convert"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:text="@string/convert"
+                android:textColor="#006699"
+                android:textSize="26sp" />
+        </LinearLayout>
     </RelativeLayout>
-        
+
+    <ImageView
+        android:id="@+id/imageMask"
+        android:visibility="invisible"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:src="@drawable/mask" />
+
+    <com.todddavies.components.progressbar.ProgressWheel
+        android:id="@+id/pw_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        ProgressWheel:barColor="#339BB9"
+        ProgressWheel:barLength="60dp"
+        ProgressWheel:barWidth="25dp"
+        ProgressWheel:rimColor="#44000000"
+        ProgressWheel:rimWidth="25dp"
+        ProgressWheel:text="0 %"
+        ProgressWheel:textColor="#222222"
+        ProgressWheel:textSize="14sp"
+        android:visibility="invisible" />
+
 </FrameLayout>

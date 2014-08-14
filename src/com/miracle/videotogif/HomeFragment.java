@@ -24,7 +24,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.learnncode.mediachooser.MediaChooser;
+import com.learnncode.mediachooser.activity.BucketHomeFragmentActivity;
 import com.learnncode.mediachooser.activity.HomeFragmentActivity;
+import com.learnncode.mediachooser.fragment.VideoFragment;
 import com.miracle.videotogif.ResideMenu.*;
 import com.miracle.videotogif.show.ShowVideo;
 
@@ -50,13 +53,16 @@ public class HomeFragment extends Fragment {
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
-
-						Intent pickMedia = new Intent(
+						MenuActivity.mContext.changeFragment(new VideoFragment());
+/*
+						//select video by system
+						 Intent pickMedia = new Intent(
+						 
 								Intent.ACTION_PICK,
 								android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 						pickMedia.setType("video/*");
 						startActivityForResult(pickMedia, SELECT_VIDEO);
-
+*/
 					}
 				});
 
@@ -66,7 +72,8 @@ public class HomeFragment extends Fragment {
 					@Override
 					public void onClick(View view) {
 
-						Intent intent = new Intent(MenuActivity.mContext, HomeFragmentActivity.class);
+						MediaChooser.setSelectionLimit(20);
+						Intent intent = new Intent(MenuActivity.mContext, BucketHomeFragmentActivity.class);
 						startActivity(intent);
 					}
 				});
