@@ -3,7 +3,8 @@
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#E6E6E6">
+                
+                android:background = "@drawable/back1">
 
 
     <LinearLayout
@@ -11,9 +12,19 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_alignParentTop="true"
-            android:layout_above="@+id/ignored_view"
             android:gravity="center">
 
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:gravity="center"
+            android:text="@string/video_gif"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="40sp"
+            android:textStyle="bold" />
         
         <ImageView
             android:id="@+id/btn_select"
@@ -27,24 +38,24 @@
             android:scaleType="fitStart"
             android:src="@drawable/selectbutton" />
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select a Video to Start"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#ffffff" />
+
         <Button
             android:id="@+id/fileButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Button" 
+            android:visibility="invisible"/>
 
     </LinearLayout>
 
-    <FrameLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="120dp"
-            android:padding="10dp"
-            android:layout_gravity="bottom"
-            android:id="@+id/bottom_view"
-            android:layout_alignParentBottom="true">
 
-    </FrameLayout>
 
 </RelativeLayout>
 

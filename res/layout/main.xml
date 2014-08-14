@@ -22,7 +22,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="left|center_vertical"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/titlebar_menu_selector" />
+                android:background="@drawable/titlebar_menu_selector"/>
 
             <TextView
                 android:id="@+id/title_bar"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="10dp"
-                android:text="HOME"
+                android:text="Home"
                 android:textColor="#ffffff"
                 android:textSize="24sp" />
         </FrameLayout>

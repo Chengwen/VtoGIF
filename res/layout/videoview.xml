@@ -58,12 +58,13 @@
         android:layout_height="fill_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:src="@drawable/mask" />
+        android:background="#b0666666"
+        />
 
     <com.todddavies.components.progressbar.ProgressWheel
         android:id="@+id/pw_spinner"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
         ProgressWheel:barColor="#339BB9"
         ProgressWheel:barLength="60dp"
