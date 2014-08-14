@@ -19,8 +19,8 @@
             <com.miracle.videotogif.GifMovieView
                 android:id="@+id/gifimage"
                 android:layout_gravity="center"
-                android:layout_width="640dp"
-                android:layout_height="640dp"
+                android:layout_width="fill_parent"
+                android:layout_height="400dp"
                 android:scaleType="fitCenter"/>
         </LinearLayout>
 
