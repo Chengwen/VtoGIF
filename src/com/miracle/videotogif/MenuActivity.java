@@ -98,13 +98,13 @@ VideoFragment.OnVideoSelectedListener{
     	TextView t=(TextView)findViewById(R.id.title_bar);
         if (view == itemHome){
             changeFragment(new HomeFragment());
-            t.setText("Home");
+            t.setText(R.string.home);
         }else if (view == itemVideo){
-            t.setText("Videos");
+            t.setText(R.string.video);
             //changeFragment(new ImageViewFragment());
             changeFragment(new VideoFragment());
         }else if (view == itemImages){
-            t.setText("Images");
+            t.setText(R.string.image);
             //changeFragment(new ImageViewFragment());
             changeFragment(new ImageFragment());
         }else if (view == itemCalendar){
