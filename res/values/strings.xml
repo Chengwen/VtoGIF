@@ -7,5 +7,7 @@
     <string name="share">Share</string>
     <string name="video_gif">Video to GIF\nConverter</string>
     <string name="convert">Convert</string>
+    <string name="delete">Delete GIF</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

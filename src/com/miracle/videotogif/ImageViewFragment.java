@@ -12,11 +12,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class ImageViewFragment extends Fragment {
 
     private View parentView;
+    private ImageView imageView;
+    private Button deletebtn;
+    private Button cancelbtn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     	
@@ -25,6 +29,35 @@ public class ImageViewFragment extends Fragment {
     	GifMovieView gifimage = (GifMovieView) parentView.findViewById(R.id.gifimage);
     	if(MenuActivity.clip.outputURL!=null)
     		gifimage.setMovieResource(MenuActivity.clip.outputURL);
+    	
+    	
+    	
+    	parentView.findViewById(R.id.delete).setOnClickListener(
+				new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+
+						imageView=(ImageView) parentView.findViewById(R.id.imageMask1);
+						imageView.setVisibility(0);
+						
+						deletebtn=(Button) parentView.findViewById(R.id.deletebtn);
+						deletebtn.setVisibility(0);
+						
+						cancelbtn=(Button) parentView.findViewById(R.id.cancelbtn);
+						cancelbtn.setVisibility(0);
+						
+						cancelbtn.setOnClickListener(new View.OnClickListener() {
+							
+							@Override
+							public void onClick(View v) {
+								// TODO Auto-generated method stub
+								imageView.setVisibility(1);
+								deletebtn.setVisibility(1);
+								cancelbtn.setVisibility(1);
+							}
+						});
+					}
+				});
 
     	
     	//share button listener
