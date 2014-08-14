@@ -10,9 +10,7 @@
                 android:layout_gravity="center"
                 android:layout_width="640dp"
                 android:layout_height="640dp"
-                android:scaleType="fitCenter"
-                
-                />
+                android:scaleType="fitCenter"/>
         
         <ImageView
             android:id="@+id/btn_share"
