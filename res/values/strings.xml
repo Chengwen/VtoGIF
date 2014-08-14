@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="share">Share</string>
     <string name="video_gif">Video to GIF\nConverter</string>
+    <string name="convert">Convert</string>
 
 </resources>
