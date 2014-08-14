@@ -32,7 +32,7 @@ public class ProgressWheel extends View {
     private int barLength = 60;
     private int barWidth = 20;
     private int rimWidth = 20;
-    private int textSize = 20;
+    private int textSize = 45;
     private float contourSize = 0;
 
     //Padding (with defaults)
@@ -46,7 +46,7 @@ public class ProgressWheel extends View {
     private int contourColor = 0xAA000000;
     private int circleColor = 0x00000000;
     private int rimColor = 0xAADDDDDD;
-    private int textColor = 0xFF000000;
+    private int textColor = 0xFFFFFFFF;
 
     //Paints
     private Paint barPaint = new Paint();

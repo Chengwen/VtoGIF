@@ -72,8 +72,8 @@
         ProgressWheel:rimColor="#44000000"
         ProgressWheel:rimWidth="25dp"
         ProgressWheel:text="0 %"
-        ProgressWheel:textColor="#222222"
-        ProgressWheel:textSize="14sp"
+        ProgressWheel:textColor="#FFFFFF"
+        ProgressWheel:textSize="35sp"
         android:visibility="invisible" />
 
 </FrameLayout>

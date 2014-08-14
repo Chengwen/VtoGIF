@@ -83,6 +83,7 @@ public class VideoViewFragment extends Fragment {
 						//show progress wheel
 						pw_spinner = (ProgressWheel) parentView.findViewById(R.id.pw_spinner);
 						pw_spinner.setVisibility(0);
+						
 						ImageView imageView=(ImageView) parentView.findViewById(R.id.imageMask);
 						imageView.setVisibility(0);
 						videoView1.stopPlayback();
@@ -108,6 +109,8 @@ public class VideoViewFragment extends Fragment {
 								}
 								//判断出错页。
 								Log.e("start ImageViewFragment","start ImageViewFragment");
+								
+								MenuActivity.imageURL=MenuActivity.clip.outputURL;
 								MenuActivity.mContext.changeFragment(new ImageViewFragment());
 								
 							}
