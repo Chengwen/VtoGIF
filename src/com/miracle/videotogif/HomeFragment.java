@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.learnncode.mediachooser.MediaChooser;
 import com.learnncode.mediachooser.activity.BucketHomeFragmentActivity;
@@ -53,6 +54,9 @@ public class HomeFragment extends Fragment {
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
+						TextView t=(TextView)parentView.findViewById(R.id.title_bar);
+						t.setText("Video");
+						
 						MenuActivity.mContext.changeFragment(new VideoFragment());
 /*
 						//select video by system

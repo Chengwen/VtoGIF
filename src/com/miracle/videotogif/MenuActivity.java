@@ -114,6 +114,7 @@ VideoFragment.OnVideoSelectedListener{
             t.setText("Setting");
             changeFragment(new SettingsFragment());
         }
+		
 
         resideMenu.closeMenu();
     }
@@ -137,6 +138,12 @@ VideoFragment.OnVideoSelectedListener{
                 .replace(R.id.main_fragment, targetFragment, "fragment")
                 .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
+    }
+    
+    public void changeFragment(Fragment targetFragment,String title){
+    	TextView t=(TextView)findViewById(R.id.title_bar);
+    	 t.setText(title);
+    	changeFragment( targetFragment);
     }
 
     // What good method is to access resideMen

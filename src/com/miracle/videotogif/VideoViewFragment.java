@@ -263,7 +263,7 @@ public class VideoViewFragment extends Fragment {
 										while (MenuActivity.clip.rotate == -1) {
 											Log.e("waiting",
 													"MenuActivity.clip.rotate==-1");
-											sleep(10);
+											sleep(50);
 										}
 										fc.ConvertToGIF(MenuActivity.clip, 10,
 
