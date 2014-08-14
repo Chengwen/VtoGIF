@@ -111,7 +111,7 @@ public class VideoViewFragment extends Fragment {
 								Log.e("start ImageViewFragment","start ImageViewFragment");
 								
 								MenuActivity.imageURL=MenuActivity.clip.outputURL;
-								MenuActivity.mContext.changeFragment(new ImageViewFragment());
+								MenuActivity.mContext.changeFragment(new ImageViewFragment(),R.string.video);
 								
 							}
 				        };

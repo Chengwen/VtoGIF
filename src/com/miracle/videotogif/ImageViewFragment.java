@@ -83,7 +83,7 @@ public class ImageViewFragment extends Fragment {
 				cancelbtn.setVisibility(View.INVISIBLE);
 				//return to image list page
 				MenuActivity.clip=new Clip();
-				MenuActivity.mContext.changeFragment(new ImageFragment());
+				MenuActivity.mContext.changeFragment(new ImageFragment(),R.string.image);
 			}
 		});
 

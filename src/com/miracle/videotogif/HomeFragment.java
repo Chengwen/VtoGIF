@@ -70,18 +70,8 @@ public class HomeFragment extends Fragment {
 				});
 
 
-		parentView.findViewById(R.id.fileButton).setOnClickListener(
-				new View.OnClickListener() {
-					@Override
-					public void onClick(View view) {
-
-						MediaChooser.setSelectionLimit(20);
-						Intent intent = new Intent(MenuActivity.mContext, BucketHomeFragmentActivity.class);
-						startActivity(intent);
-					}
-				});
 	}
-
+/*
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -344,6 +334,6 @@ public class HomeFragment extends Fragment {
 				cursor.close();
 			}
 		}
-	}
+	}*/
 
 }
