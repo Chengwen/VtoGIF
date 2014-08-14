@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,33 +30,50 @@ public class ImageViewFragment extends Fragment {
     	GifMovieView gifimage = (GifMovieView) parentView.findViewById(R.id.gifimage);
     	if(MenuActivity.clip.outputURL!=null)
     		gifimage.setMovieResource(MenuActivity.clip.outputURL);
-    	
-    	
-    	
+
+		cancelbtn=(Button) parentView.findViewById(R.id.cancelbtn);
+
+		cancelbtn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+
+				imageView.getHandler().post(new Runnable() {
+				    public void run() {
+				    	imageView.setVisibility(View.INVISIBLE);
+				    }
+				});
+				deletebtn.getHandler().post(new Runnable() {
+				    public void run() {
+				    	deletebtn.setVisibility(View.INVISIBLE);
+				    }
+				});
+				cancelbtn.getHandler().post(new Runnable() {
+				    public void run() {
+				    	cancelbtn.setVisibility(View.INVISIBLE);
+				    }
+				});
+				
+			}
+		});
+
+		imageView=(ImageView) parentView.findViewById(R.id.imageMask1);
+
+		deletebtn=(Button) parentView.findViewById(R.id.deletebtn);
+		
     	parentView.findViewById(R.id.delete).setOnClickListener(
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
 
-						imageView=(ImageView) parentView.findViewById(R.id.imageMask1);
-						imageView.setVisibility(0);
+						imageView.setVisibility(View.VISIBLE);
 						
-						deletebtn=(Button) parentView.findViewById(R.id.deletebtn);
-						deletebtn.setVisibility(0);
+						deletebtn.setVisibility(View.VISIBLE);
 						
-						cancelbtn=(Button) parentView.findViewById(R.id.cancelbtn);
-						cancelbtn.setVisibility(0);
+						cancelbtn.setVisibility(View.VISIBLE);
 						
-						cancelbtn.setOnClickListener(new View.OnClickListener() {
-							
-							@Override
-							public void onClick(View v) {
-								// TODO Auto-generated method stub
-								imageView.setVisibility(1);
-								deletebtn.setVisibility(1);
-								cancelbtn.setVisibility(1);
-							}
-						});
+
 					}
 				});
 
