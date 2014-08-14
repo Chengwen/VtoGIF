@@ -78,6 +78,7 @@ public class VideoViewFragment extends Fragment {
 						MenuActivity.clip.path =MenuActivity.videoURL;
 
 						MenuActivity.clip.convertPrecent = 0;
+						MenuActivity.clip.convertStatus = Clip.IDLE;
 
 						//show progress wheel
 						pw_spinner = (ProgressWheel) parentView.findViewById(R.id.pw_spinner);
