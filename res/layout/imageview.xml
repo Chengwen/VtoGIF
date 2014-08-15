@@ -29,7 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="#F2F2F2"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp" >
 
             <ImageButton
                 android:id="@+id/delete"

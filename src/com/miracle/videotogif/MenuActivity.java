@@ -97,7 +97,7 @@ VideoFragment.OnVideoSelectedListener{
 
         // Create an ad.
         AdView adView = new AdView(this);
-        adView.setAdSize(AdSize.BANNER);
+        adView.setAdSize(AdSize.SMART_BANNER);
         adView.setAdUnitId("ca-app-pub-3568858304593155/8968970224");
 
         // Add the AdView to the view hierarchy. The view will have no size
@@ -113,7 +113,7 @@ VideoFragment.OnVideoSelectedListener{
 
         // Start loading the ad in the background.
         adView.loadAd(adRequest);
-        
+      
     }
 
     @Override
