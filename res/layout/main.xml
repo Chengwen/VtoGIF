@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="10dp"
-                android:text="Home"
+                android:text="@string/home" 
                 android:textColor="#ffffff"
                 android:textSize="24sp" />
 
