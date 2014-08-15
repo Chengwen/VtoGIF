@@ -124,7 +124,7 @@ public class VideoViewFragment extends Fragment {
 								else
 								{
 									MenuActivity.mContext.changeFragment(new VideoFragment(),R.string.video);
-						            Toast.makeText(MenuActivity.mContext, R.string.convert_error, Toast.LENGTH_LONG).show();
+									//Toast.makeText(MenuActivity.mContext, R.string.convert_error, Toast.LENGTH_LONG).show();
 								}
 							}
 				        };

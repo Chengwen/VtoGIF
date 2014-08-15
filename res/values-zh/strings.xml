@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">视频转GIF转换器</string>
+    <string name="action_settings">设置</string>
+    <string name="share">分享</string>
+    <string name="video_gif">视频转GIF \n 转换器</string>
+    <string name="convert">转换</string>
+    <string name="delete">删除</string>
+    <string name="cancel">取消</string>
+    <string name="convert_error">转换错误！</string>
+    <string name="home">首页</string>
+    <string name="video">视频</string>
+    <string name="image">图片</string>
+    <string name="video_details">视频详情</string>
+    <string name="image_details">图片详情</string>
+
+</resources>

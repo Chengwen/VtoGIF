@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">GIFコンバータビデオ</string>
+    <string name="action_settings">設定</string>
+    <string name="share">シェア</string>
+    <string name="video_gif">GIFコンバータビデオ</string>
+    <string name="convert">変更</string>
+    <string name="delete">削除</string>
+    <string name="cancel"> キャンセル</string>
+    <string name="convert_error">エラーを変換！</string>
+    <string name="home">ホーム</string>
+    <string name="video">動画</string>
+    <string name="image">画像</string>
+    <string name="video_details">動画の詳細</string>
+    <string name="image_details">画像の詳細</string>
+
+</resources>

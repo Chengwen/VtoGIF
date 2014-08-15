@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">Video to GIF Converter</string>
+    <string name="action_settings">Configuración</string>
+    <string name="share">Compartir</string>
+    <string name="video_gif">Video to GIF \n Converter</string>
+    <string name="convert">Convertir</string>
+    <string name="delete">Eliminar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="convert_error">Convertir Error!</string>
+    <string name="home">Inicio</string>
+    <string name="video">Vídeos</string>
+    <string name="image">Im&amp;aacute;genes</string>
+    <string name="video_details">Detalles del video</string>
+    <string name="image_details">Detalles de la Imagen</string>
+
+</resources>

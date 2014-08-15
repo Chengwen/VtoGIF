@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">Video to GIF Converter</string>
+    <string name="action_settings">Настройки</string>
+    <string name="share">Поделиться</string>
+    <string name="video_gif">Video to GIF \n Converter</string>
+    <string name="convert">Convert</string>
+    <string name="delete">Удаление</string>
+    <string name="cancel">Отмена</string>
+    <string name="convert_error">Convert Error!</string>
+    <string name="home">Домашний</string>
+    <string name="video">Видео</string>
+    <string name="image">Изображения</string>
+    <string name="video_details">Информация о видео</string>
+    <string name="image_details">Image Details</string>
+
+</resources>
