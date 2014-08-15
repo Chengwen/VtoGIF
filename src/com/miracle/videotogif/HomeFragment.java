@@ -27,7 +27,6 @@ import com.learnncode.mediachooser.activity.BucketHomeFragmentActivity;
 import com.learnncode.mediachooser.activity.HomeFragmentActivity;
 import com.learnncode.mediachooser.fragment.VideoFragment;
 import com.miracle.videotogif.ResideMenu.*;
-import com.miracle.videotogif.show.ShowVideo;
 
 public class HomeFragment extends Fragment {
 
