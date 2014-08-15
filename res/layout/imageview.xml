@@ -6,17 +6,17 @@
               android:layout_height="match_parent">
 
         <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
         android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_centerVertical="true"
             android:orientation="vertical" >
 
-            <com.miracle.videotogif.GifMovieView
+            <ImageView
                 android:id="@+id/gifimage"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"

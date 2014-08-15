@@ -1,6 +1,7 @@
 package com.miracle.videotogif;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 
 import org.ffmpeg.android.Clip;
@@ -23,8 +24,10 @@ public class ImageViewFragment extends Fragment {
 
 	private View parentView;
 	private ImageView imageView;
+	private ImageView gifimage;
 	private Button deletebtn;
 	private Button cancelbtn;
+	private GifAnimationDrawable gifdr;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,11 +35,19 @@ public class ImageViewFragment extends Fragment {
 
 		parentView = inflater.inflate(R.layout.imageview, container, false);
 
-		GifMovieView gifimage = (GifMovieView) parentView
+		gifimage = (ImageView) parentView
 				.findViewById(R.id.gifimage);
 		if (MenuActivity.imageURL != null) {
 			Log.e("MenuActivity.imageURL",MenuActivity.imageURL);
-			gifimage.setMovieResource(MenuActivity.imageURL);
+			//gifimage.setMovieResource(MenuActivity.imageURL);
+			try {
+				gifdr = new GifAnimationDrawable(new File(MenuActivity.imageURL));
+				gifdr.setOneShot(false);
+				gifimage.setImageDrawable(gifdr);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		cancelbtn = (Button) parentView.findViewById(R.id.cancelbtn);
