@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.analytics.tracking.android.EasyTracker;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -53,6 +54,20 @@ VideoFragment.OnVideoSelectedListener{
         setUpMenu();
         //changeFragment(new VideoFragment());
         changeFragment(new HomeFragment());
+    }
+    
+    @Override
+    public void onStart() {
+      super.onStart();
+      // The rest of your onStart() code.
+      EasyTracker.getInstance(this).activityStart(this);  // Add this method.
+    }
+
+    @Override
+    public void onStop() {
+      super.onStop();
+       // The rest of your onStop() code.
+      EasyTracker.getInstance(this).activityStop(this);  // Add this method.
     }
 
     private void setUpMenu() {
