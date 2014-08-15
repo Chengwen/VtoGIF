@@ -11,9 +11,13 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.learnncode.mediachooser.fragment.ImageFragment;
 import com.learnncode.mediachooser.fragment.VideoFragment;
 import com.miracle.videotogif.ResideMenu.ResideMenu;
@@ -89,6 +93,27 @@ VideoFragment.OnVideoSelectedListener{
                 resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
             }
         });
+        
+
+        // Create an ad.
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId("ca-app-pub-3568858304593155/8968970224");
+
+        // Add the AdView to the view hierarchy. The view will have no size
+        // until the ad is loaded.
+        LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);
+        layout.addView(adView);
+
+        // Create an ad request. Check logcat output for the hashed device ID to
+        // get test ads on a physical device.
+        AdRequest adRequest = new AdRequest.Builder()
+            .addTestDevice("INSERT_YOUR_HASHED_DEVICE_ID_HERE")
+            .build();
+
+        // Start loading the ad in the background.
+        adView.loadAd(adRequest);
+        
     }
 
     @Override
