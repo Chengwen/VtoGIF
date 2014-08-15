@@ -13,6 +13,8 @@
     <string name="home">Home</string>
     <string name="video">Videos</string>
     <string name="image">Images</string>
+    <string name="video_details">Video Details</string>
+    <string name="image_details">Image Details</string>
     
     
     

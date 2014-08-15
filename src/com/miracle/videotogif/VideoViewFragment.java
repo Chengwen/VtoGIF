@@ -119,7 +119,7 @@ public class VideoViewFragment extends Fragment {
 										e.printStackTrace();
 									}
 									MenuActivity.imageURL=MenuActivity.clip.outputURL;
-									MenuActivity.mContext.changeFragment(new ImageViewFragment(),R.string.image);
+									MenuActivity.mContext.changeFragment(new ImageViewFragment(),R.string.image_details);
 								}
 								else
 								{

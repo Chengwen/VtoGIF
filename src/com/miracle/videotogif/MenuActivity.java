@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -33,7 +34,8 @@ VideoFragment.OnVideoSelectedListener{
     public static Clip clip=new Clip();
     public static String videoURL=null;
     public static String imageURL=null;
-    public static int title;
+    public static String lastPage=null;
+    public static int title=0;
     
 
     /**
@@ -114,6 +116,32 @@ VideoFragment.OnVideoSelectedListener{
         resideMenu.closeMenu();
     }
 
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			if(MenuActivity.mContext.title==R.string.video || MenuActivity.mContext.title==R.string.image )
+			{
+				changeFragment(new HomeFragment(),R.string.home);
+			}
+			else if(MenuActivity.mContext.title==R.string.video_details)
+			{
+				changeFragment(new VideoFragment(),R.string.video);
+			}
+			else if(MenuActivity.mContext.title==R.string.image_details)
+			{
+				changeFragment(new ImageFragment(),R.string.image);
+			}
+			else if(MenuActivity.mContext.title==R.string.home)
+			{
+				return super.onKeyDown(keyCode, event);
+			}
+			return true;
+		} else {
+			return super.onKeyDown(keyCode, event);
+		}
+	}
+
+
     private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
         @Override
         public void openMenu() {
@@ -167,7 +195,7 @@ VideoFragment.OnVideoSelectedListener{
 			Log.d("selected imageURL",imageFragment.getSelectedImageList().get(0));
 			MenuActivity.imageURL=imageFragment.getSelectedImageList().get(0);
 			
-			changeFragment(new ImageViewFragment());
+			changeFragment(new ImageViewFragment(),R.string.image_details);
 		}
 	}
 
@@ -182,7 +210,7 @@ VideoFragment.OnVideoSelectedListener{
 
 			Log.d("selected Videos",videoFragment.getSelectedVideoList().get(0));
 			MenuActivity.videoURL=videoFragment.getSelectedVideoList().get(0);
-			changeFragment(new VideoViewFragment());
+			changeFragment(new VideoViewFragment(),R.string.video_details);
 		}
 	}
 }
