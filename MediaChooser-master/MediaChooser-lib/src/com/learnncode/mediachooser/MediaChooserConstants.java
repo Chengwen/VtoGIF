@@ -45,8 +45,8 @@ public class MediaChooserConstants {
 	public static boolean showVideo 	  = true;
 	public static boolean showImage 	  = true;
 
-	public static int SELECTED_IMAGE_SIZE_IN_MB = 20;
-	public static int SELECTED_VIDEO_SIZE_IN_MB = 20;
+	public static int SELECTED_IMAGE_SIZE_IN_MB = 50;
+	public static int SELECTED_VIDEO_SIZE_IN_MB = 2048;
 	
 	
 	public static final int BUCKET_SELECT_IMAGE_CODE = 1000;
