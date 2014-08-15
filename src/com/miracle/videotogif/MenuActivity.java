@@ -75,6 +75,7 @@ VideoFragment.OnVideoSelectedListener{
         // attach to current activity;
         resideMenu = new ResideMenu(this);
         resideMenu.setBackground(R.drawable.menu_background);
+        //resideMenu.setBackground(R.drawable.gradient_dark_teal);
         resideMenu.attachToActivity(this);
         //resideMenu.setMenuListener(menuListener);
         //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip. 
