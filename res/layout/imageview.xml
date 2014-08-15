@@ -16,6 +16,15 @@
             android:layout_centerVertical="true"
             android:orientation="vertical" >
 
+	        <WebView
+	            android:id="@+id/webImageView1"
+	            android:layout_width="match_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_alignParentLeft="true"
+	            android:layout_alignParentTop="true"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter" />
+	       
             <ImageView
                 android:id="@+id/gifimage"
                 android:layout_gravity="center"
@@ -102,7 +111,7 @@
            android:visibility="invisible" />
 
        </LinearLayout>
-       
+
        </RelativeLayout>
         
 </FrameLayout>
