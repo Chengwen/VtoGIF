@@ -3,6 +3,7 @@ package com.miracle.videotogif;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -105,9 +106,12 @@ public class GifMovieView extends View {
 		
 		try {
 			mMovie = Movie.decodeStream(new FileInputStream(file));
+		}catch (IOException e1) {
+			// TODO Auto-generated catch block
+			Log.d("error",e1.toString());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.toString();
+			Log.d("error",e.toString());
 		}
 		requestLayout();
 	}

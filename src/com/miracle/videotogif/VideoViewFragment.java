@@ -10,6 +10,7 @@ import org.ffmpeg.android.ShellUtils;
 
 import com.learnncode.mediachooser.MediaChooser;
 import com.learnncode.mediachooser.activity.BucketHomeFragmentActivity;
+import com.learnncode.mediachooser.fragment.VideoFragment;
 import com.todddavies.components.progressbar.ProgressWheel;
 
 import android.content.Context;
@@ -31,6 +32,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 public class VideoViewFragment extends Fragment {
@@ -70,7 +72,7 @@ public class VideoViewFragment extends Fragment {
 					@Override
 					public void onClick(View view) {
 
-						if(MenuActivity.videoURL==null)
+						if(MenuActivity.videoURL==null ||MenuActivity.clip.convertStatus==MenuActivity.clip.CONVERTING)
 							return;
 						
 						
@@ -107,12 +109,23 @@ public class VideoViewFragment extends Fragment {
 										}
 									}
 								}
-								//判断出错页。
-								Log.e("start ImageViewFragment","start ImageViewFragment");
-								
-								MenuActivity.imageURL=MenuActivity.clip.outputURL;
-								MenuActivity.mContext.changeFragment(new ImageViewFragment(),R.string.video);
-								
+								if(MenuActivity.clip.convertStatus==Clip.SUCCESSED)
+								{
+									Log.e("start ImageViewFragment","start ImageViewFragment");
+									try {
+										Thread.sleep(350);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									MenuActivity.imageURL=MenuActivity.clip.outputURL;
+									MenuActivity.mContext.changeFragment(new ImageViewFragment(),R.string.image);
+								}
+								else
+								{
+									MenuActivity.mContext.changeFragment(new VideoFragment(),R.string.video);
+						            Toast.makeText(MenuActivity.mContext, R.string.convert_error, Toast.LENGTH_LONG).show();
+								}
 							}
 				        };
 
@@ -158,7 +171,7 @@ public class VideoViewFragment extends Fragment {
 											MenuActivity.mContext, fileTmp);
 									try {
 										// fc.convertToWaveAudio
-										Log.d("status", "begin convert");
+										Log.d("status", "check convert");
 										MenuActivity.clip.convertStatus = Clip.CONVERTING;
 
 										fc.getVideoInfo(realurl,
@@ -227,7 +240,7 @@ public class VideoViewFragment extends Fragment {
 																.compile(regexRotate);
 														Matcher m2 = p2
 																.matcher(shellLine);
-														// Log.d("shellLine",shellLine);
+														Log.d("shellLine1",shellLine);
 														if (m2.find()) {
 															int rotate = 0;
 															try {
@@ -251,27 +264,32 @@ public class VideoViewFragment extends Fragment {
 													public void processComplete(
 															int exitValue) {
 
-														if (MenuActivity.clip.rotate == -1)
-															MenuActivity.clip.rotate = 0;
 														Log.d("get video info",
 																"processComplete");
 
 													}
 												});
-										Log.d("ConvertToGIF", "start");
+
+										Log.d("ConvertToGIF", "check OK ,rotate"+String.valueOf(MenuActivity.clip.rotate) );
+										sleep(150);
+										
+										if (MenuActivity.clip.rotate == -1)
+											MenuActivity.clip.rotate = 0;
+										
 										// wait until rotate read OK
-										while (MenuActivity.clip.rotate == -1) {
+										while (MenuActivity.clip.rotate == -1 || MenuActivity.clip.newHeight<0) {
 											Log.e("waiting",
-													"MenuActivity.clip.rotate==-1");
+													"MenuActivity.clip.rotate == -1 || MenuActivity.clip.newHeight<0");
 											sleep(50);
 										}
+										Log.d("ConvertToGIF", "start ,rotate"+String.valueOf(MenuActivity.clip.rotate) );
 										fc.ConvertToGIF(MenuActivity.clip, 10,
 
 										new ShellUtils.ShellCallback() {
 
 											@Override
 											public void shellOut(String shellLine) {
-												// Log.d("shellLine2",shellLine);
+												 Log.d("shellLine2",shellLine);
 												String regexDuration = "(.*?)time=(.*?) bitrate(.*?)";
 												Pattern p = Pattern
 														.compile(regexDuration);
@@ -297,7 +315,7 @@ public class VideoViewFragment extends Fragment {
 
 											@Override
 											public void processComplete(int exitValue) {
-
+												
 												if (exitValue != 0) {
 													Log.d("error",
 															"concat non-zero exit2: "
@@ -307,6 +325,13 @@ public class VideoViewFragment extends Fragment {
 												} else {
 													Log.d("success", "success exit1: "
 															+ exitValue);
+													
+													try {
+														Thread.sleep(350);
+													} catch (InterruptedException e) {
+														// TODO Auto-generated catch block
+														e.printStackTrace();
+													}
 													MenuActivity.clip.convertPrecent = 100;
 													MenuActivity.clip.convertStatus = Clip.SUCCESSED;
 

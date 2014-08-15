@@ -33,6 +33,7 @@ VideoFragment.OnVideoSelectedListener{
     public static Clip clip=new Clip();
     public static String videoURL=null;
     public static String imageURL=null;
+    public static int title;
     
 
     /**
@@ -135,8 +136,17 @@ VideoFragment.OnVideoSelectedListener{
     }
     
     public void changeFragment(Fragment targetFragment,int title){
-    	TextView t=(TextView)findViewById(R.id.title_bar);
-    	 t.setText(title);
+    	TextView t=(TextView)MenuActivity.mContext.findViewById(R.id.title_bar);
+    	MenuActivity.mContext.title=title;
+
+		t.getHandler().post(new Runnable() {
+			public void run() {
+		    	TextView t=(TextView)MenuActivity.mContext.findViewById(R.id.title_bar);
+				 t.setText(MenuActivity.mContext.title);
+			}
+		});
+		
+    	
     	changeFragment( targetFragment);
     }
 

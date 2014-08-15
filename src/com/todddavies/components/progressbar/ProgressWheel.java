@@ -43,7 +43,7 @@ public class ProgressWheel extends View {
 
     //Colors (with defaults)
     private int barColor = 0xAA000000;
-    private int contourColor = 0xAA000000;
+    private int contourColor = 0xAAFFFFFF;
     private int circleColor = 0x00000000;
     private int rimColor = 0xAADDDDDD;
     private int textColor = 0xFFFFFFFF;

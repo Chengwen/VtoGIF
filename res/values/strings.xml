@@ -9,7 +9,7 @@
     <string name="convert">Convert</string>
     <string name="delete">Delete GIF</string>
     <string name="cancel">Cancel</string>
-    
+    <string name="convert_error">Convert Error!</string>
     <string name="home">Home</string>
     <string name="video">Videos</string>
     <string name="image">Images</string>
