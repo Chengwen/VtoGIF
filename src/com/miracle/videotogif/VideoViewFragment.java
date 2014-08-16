@@ -98,12 +98,12 @@ public class VideoViewFragment extends Fragment {
           MenuActivity.clip.duration = maxValue - minValue;
           textViewStartValue.getHandler().post(new Runnable() {
             public void run() {
-              textViewStartValue.setText(MenuActivity.clip.startTime+"s");
+              textViewStartValue.setText(MenuActivity.clip.startTime);
             }
         });
         textViewEndValue.getHandler().post(new Runnable() {
           public void run() {
-            textViewEndValue.setText(getTimeFromDouble(getTimelen(MenuActivity.clip.startTime)+MenuActivity.clip.duration)+"s");
+            textViewEndValue.setText(getTimeFromDouble(getTimelen(MenuActivity.clip.startTime)+MenuActivity.clip.duration));
           }
       });
         }
