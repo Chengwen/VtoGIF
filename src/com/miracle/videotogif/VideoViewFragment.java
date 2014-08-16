@@ -56,6 +56,15 @@ public class VideoViewFragment extends Fragment {
 
     textViewStartValue=(TextView) parentView.findViewById(R.id.textViewStartValue);
     textViewEndValue=(TextView) parentView.findViewById(R.id.textViewEndValue);
+
+    TextView textViewStart=(TextView) parentView.findViewById(R.id.textViewStart);
+    textViewStart.setText(R.string.start);
+    textViewStart.setText(textViewStart.getText()+":");
+    
+    TextView textViewEnd=(TextView) parentView.findViewById(R.id.textViewEnd);
+    textViewEnd.setText(R.string.end);
+    textViewEnd.setText(textViewStart.getText()+":");
+    
     
     if (MenuActivity.videoURL != null) {
       Log.d("video play", MenuActivity.videoURL);
@@ -187,7 +196,7 @@ public class VideoViewFragment extends Fragment {
                     MenuActivity.clip.height = Integer.parseInt(strs[1]);
 
                     float ratiowidth = (float) MenuActivity.clip.width / 640.0f;
-                    float ratioheight = (float) MenuActivity.clip.height / 480.0f;
+                    float ratioheight = (float) MenuActivity.clip.height / 360.0f;
                     float ratio = ratiowidth;
                     if (ratiowidth < ratioheight) {
                       ratio = ratioheight;
