@@ -59,8 +59,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Start Time:"
-                    android:textSize="20sp" />
+                    android:text="Start:"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textViewStartValue"
@@ -68,15 +68,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="" 
-                    android:textSize="20sp"/>
+                    android:textSize="18sp"/>
 
                 <TextView
                     android:id="@+id/textViewEnd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="End Time:" 
-                    android:textSize="20sp"/>
+                    android:text="End:" 
+                    android:textSize="18sp"/>
 
                 <TextView
                     android:id="@+id/textViewEndValue"
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="" 
-                    android:textSize="20sp"/>
+                    android:textSize="18sp"/>
 
             </LinearLayout>
             </LinearLayout>

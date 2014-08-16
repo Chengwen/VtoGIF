@@ -98,12 +98,12 @@ public class VideoViewFragment extends Fragment {
           MenuActivity.clip.duration = maxValue - minValue;
           textViewStartValue.getHandler().post(new Runnable() {
             public void run() {
-              textViewStartValue.setText(MenuActivity.clip.startTime+" s");
+              textViewStartValue.setText(MenuActivity.clip.startTime+"s");
             }
         });
         textViewEndValue.getHandler().post(new Runnable() {
           public void run() {
-            textViewEndValue.setText(getTimeFromDouble(getTimelen(MenuActivity.clip.startTime)+MenuActivity.clip.duration)+" s");
+            textViewEndValue.setText(getTimeFromDouble(getTimelen(MenuActivity.clip.startTime)+MenuActivity.clip.duration)+"s");
           }
       });
         }
@@ -166,12 +166,12 @@ public class VideoViewFragment extends Fragment {
 
                     textViewStartValue.getHandler().post(new Runnable() {
                         public void run() {
-                          textViewStartValue.setText(getTimeFromDouble(0)+" s");
+                          textViewStartValue.setText(getTimeFromDouble(0));
                         }
                     });
                     textViewEndValue.getHandler().post(new Runnable() {
                       public void run() {
-                        textViewEndValue.setText(getTimeFromDouble(MenuActivity.clip.length)+" s");
+                        textViewEndValue.setText(getTimeFromDouble(MenuActivity.clip.length));
                       }
                   });
                     Log.d("find Duration",
@@ -445,8 +445,8 @@ public class VideoViewFragment extends Fragment {
     String out = "";
 
     java.text.DecimalFormat df = new java.text.DecimalFormat("00");
-    java.text.DecimalFormat df2 = new java.text.DecimalFormat("00.00");
-    
+    java.text.DecimalFormat df2 = new java.text.DecimalFormat("00.000");
+
     int hours = (int) timelen / 3600;
     int mintues = (int) (timelen - hours * 3600) / 60;
     double sec = timelen % 60d;
