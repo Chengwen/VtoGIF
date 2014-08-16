@@ -1,30 +1,10 @@
 package com.miracle.videotogif;
 
-import java.io.File;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.ffmpeg.android.Clip;
-import org.ffmpeg.android.FfmpegController;
-import org.ffmpeg.android.ShellUtils;
-
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.preference.PreferenceManager;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.learnncode.mediachooser.MediaChooser;
-import com.learnncode.mediachooser.activity.BucketHomeFragmentActivity;
-import com.learnncode.mediachooser.activity.HomeFragmentActivity;
 import com.learnncode.mediachooser.fragment.VideoFragment;
 import com.miracle.videotogif.ResideMenu.*;
 

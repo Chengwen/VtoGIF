@@ -6,6 +6,7 @@
     <string name="share">Share</string>
     <string name="video_gif">Video to GIF \n Converter</string>
     <string name="convert">Convert</string>
+    <string name="select_start">Select a Video to Start</string>
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="convert_error">Convert Error!</string>
