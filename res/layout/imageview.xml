@@ -16,18 +16,35 @@
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_centerVertical="true"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:layout_above="@+id/relativeLayoutbottom" >
 
 	       
-            <pl.droidsonroids.gif.GifImageView
-                android:id="@+id/gifimage"
-                android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:scaleType="fitCenter"/>
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_centerVertical="true"
+              android:orientation="vertical"
+            android:layout_above="@+id/textViewFileInfo">
+              
+              <pl.droidsonroids.gif.GifImageView
+                  android:id="@+id/gifimage"
+                  android:layout_gravity="center"
+                  android:layout_width="match_parent"
+                  android:layout_height="fill_parent"
+                  android:scaleType="fitCenter"/>
+              </LinearLayout>
+                <TextView
+                    android:id="@+id/textViewFileInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:text="dssd"/>
         </LinearLayout>
 
         <RelativeLayout
+            android:id="@+id/relativeLayoutbottom"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -45,6 +62,14 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/delete" />
             
+                <TextView
+                    android:id="@+id/textViewFileInfo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:layout_center="center"
+                    android:text="dssd"/>
              <ImageButton
                  android:id="@+id/share"
                  android:layout_width="50dip"
