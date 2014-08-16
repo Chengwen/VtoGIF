@@ -31,6 +31,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 public class VideoViewFragment extends Fragment {
@@ -41,6 +42,9 @@ public class VideoViewFragment extends Fragment {
   private ProgressWheel pw_spinner;
   private double lastStartSec = 0d;
   private double lastEndSec = 0d;
+  private TextView textViewStartValue;
+  private TextView textViewEndValue;
+  
   private static RangeSeekBar<Double> seekBar;
 
   @Override
@@ -49,6 +53,10 @@ public class VideoViewFragment extends Fragment {
     parentView = inflater.inflate(R.layout.videoview, container, false);
 
     videoView1 = (VideoView) parentView.findViewById(R.id.videoView1);
+
+    textViewStartValue=(TextView) parentView.findViewById(R.id.textViewStartValue);
+    textViewEndValue=(TextView) parentView.findViewById(R.id.textViewEndValue);
+    
     if (MenuActivity.videoURL != null) {
       Log.d("video play", MenuActivity.videoURL);
       videoView1.setVideoPath(MenuActivity.videoURL);
@@ -88,7 +96,16 @@ public class VideoViewFragment extends Fragment {
           }
           MenuActivity.clip.startTime = getTimeFromDouble(minValue);
           MenuActivity.clip.duration = maxValue - minValue;
-
+          textViewStartValue.getHandler().post(new Runnable() {
+            public void run() {
+              textViewStartValue.setText(MenuActivity.clip.startTime+" s");
+            }
+        });
+        textViewEndValue.getHandler().post(new Runnable() {
+          public void run() {
+            textViewEndValue.setText(getTimeFromDouble(getTimelen(MenuActivity.clip.startTime)+MenuActivity.clip.duration)+" s");
+          }
+      });
         }
       });
 
@@ -147,7 +164,16 @@ public class VideoViewFragment extends Fragment {
                     lastEndSec = MenuActivity.clip.length;
                     seekBar.setAbsoluteMaxValue(MenuActivity.clip.length);
 
-
+                    textViewStartValue.getHandler().post(new Runnable() {
+                        public void run() {
+                          textViewStartValue.setText(getTimeFromDouble(0)+" s");
+                        }
+                    });
+                    textViewEndValue.getHandler().post(new Runnable() {
+                      public void run() {
+                        textViewEndValue.setText(getTimeFromDouble(MenuActivity.clip.length)+" s");
+                      }
+                  });
                     Log.d("find Duration",
                         m.group(1) + " " + String.valueOf(MenuActivity.clip.length));
                   }
@@ -417,10 +443,14 @@ public class VideoViewFragment extends Fragment {
   private String getTimeFromDouble(double timelen) {
 
     String out = "";
+
+    java.text.DecimalFormat df = new java.text.DecimalFormat("00");
+    java.text.DecimalFormat df2 = new java.text.DecimalFormat("00.00");
+    
     int hours = (int) timelen / 3600;
     int mintues = (int) (timelen - hours * 3600) / 60;
     double sec = timelen % 60d;
-    out = String.valueOf(hours) + ":" + String.valueOf(mintues) + ":" + String.format("%.2f", sec);
+    out = df.format(hours) + ":" + df.format(mintues) + ":" + df2.format( sec);
     return out;
   }
 
