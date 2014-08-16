@@ -14,6 +14,7 @@
             android:id="@+id/linearLayoutvideo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@+id/bottomLinearLayout2"
             android:layout_centerVertical="true"
             android:orientation="vertical" >
 
@@ -30,19 +31,8 @@
                     android:layout_gravity="center"
                     android:gravity="center" />
 
-                <MediaController
-                    android:id="@+id/mediaController1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
-
                 <LinearLayout
-                    android:id="@+id/moreLinearLayout1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-
-                <LinearLayout
-                    android:id="@+id/moreLinearLayout2"
+                    android:id="@+id/moreLinearLayoutseekBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical" />
@@ -53,7 +43,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical" >
 
-
                     <TextView
                         android:id="@+id/textViewStart"
                         android:layout_width="wrap_content"
@@ -61,15 +50,34 @@
                         android:text="Start:" />
 
                     <TextView
+                        android:id="@+id/textViewStartValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <TextView
                         android:id="@+id/textViewEnd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="End:" />
+
+                    <TextView
+                        android:id="@+id/textViewEndValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <View
+                        android:id="@+id/videoControlView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+                    </View>
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
 
         <LinearLayout
+            android:id="@+id/bottomLinearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

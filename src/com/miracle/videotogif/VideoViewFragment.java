@@ -21,10 +21,12 @@ import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
@@ -37,8 +39,8 @@ public class VideoViewFragment extends Fragment {
   private VideoView videoView1;
   private MediaController mController;
   private ProgressWheel pw_spinner;
-  private double lastStartSec=0d;
-  private double lastEndSec=0d;
+  private double lastStartSec = 0d;
+  private double lastEndSec = 0d;
   private static RangeSeekBar<Double> seekBar;
 
   @Override
@@ -52,26 +54,31 @@ public class VideoViewFragment extends Fragment {
       videoView1.setVideoPath(MenuActivity.videoURL);
       videoView1.start();
 
-      MediaController mMediaController = new MediaController(MenuActivity.mContext);
-      // mController =
-      // (MediaController)parentView.findViewById(R.id.mediaController1);
+      MediaController mController = new MediaController(MenuActivity.mContext);
+      videoView1.setMediaController(mController);
+      //View videoControlView=(View)parentView.findViewById(R.id.videoControlView);
+      //mController.setAnchorView(videoControlView);
+      //
       /*
-       * FrameLayout.LayoutParams adParams = new FrameLayout.LayoutParams(
-       * FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-       * adParams.gravity=Gravity.CENTER;
-       * 
-       * mMediaController.setLayoutParams(adParams);
-       */
-      videoView1.setMediaController(mMediaController);
+      mController = (MediaController) parentView.findViewById(R.id.mediaController1);
+      mController.setAnchorView(videoView1);
+      LinearLayout.LayoutParams adParams =
+          new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+              LinearLayout.LayoutParams.WRAP_CONTENT);
+      adParams.gravity = Gravity.CENTER;
+
+      mController.setLayoutParams(adParams);*/
+      //mController.setAnchorView();
+
 
       MenuActivity.clip = new Clip();
       MenuActivity.clip.path = MenuActivity.videoURL;
 
       MenuActivity.clip.convertPrecent = 0;
       MenuActivity.clip.convertStatus = Clip.IDLE;
-      lastStartSec=0d;
-      lastEndSec=0d;
-      
+      lastStartSec = 0d;
+      lastEndSec = 0d;
+
       // create RangeSeekBar as Integer range between 20 and 75
       seekBar = new RangeSeekBar<Double>(0d, 100d, MenuActivity.mContext);
       seekBar.setOnRangeSeekBarChangeListener(new OnRangeSeekBarChangeListener<Double>() {
@@ -80,27 +87,25 @@ public class VideoViewFragment extends Fragment {
             Double maxValue) {
           // handle changed range values
           Log.i("Select", "User selected new range values: MIN=" + minValue + ", MAX=" + maxValue);
-          
-          if(lastStartSec!=minValue)
-          {
-            lastStartSec=minValue;
-            videoView1.seekTo(Integer.parseInt(String.format("%.0f",lastStartSec*1000)));
-            Log.d("lastStartSec seekto",String.format("%.0f",lastStartSec*1000));
+
+          if (lastStartSec != minValue) {
+            lastStartSec = minValue;
+            videoView1.seekTo(Integer.parseInt(String.format("%.0f", lastStartSec * 1000)));
+            Log.d("lastStartSec seekto", String.format("%.0f", lastStartSec * 1000));
           }
-          if(lastEndSec!=maxValue)
-          {
-            lastEndSec=maxValue;
-            videoView1.seekTo(Integer.parseInt(String.format("%.0f",lastEndSec*1000)));
-            Log.d("lastEndSec seekto",String.format("%.0f",lastEndSec*1000));
+          if (lastEndSec != maxValue) {
+            lastEndSec = maxValue;
+            videoView1.seekTo(Integer.parseInt(String.format("%.0f", lastEndSec * 1000)));
+            Log.d("lastEndSec seekto", String.format("%.0f", lastEndSec * 1000));
           }
           MenuActivity.clip.startTime = getTimeFromDouble(minValue);
           MenuActivity.clip.duration = maxValue - minValue;
-          
+
         }
       });
 
       // add RangeSeekBar to pre-defined layout
-      LinearLayout layout = (LinearLayout) parentView.findViewById(R.id.moreLinearLayout1);
+      LinearLayout layout = (LinearLayout) parentView.findViewById(R.id.moreLinearLayoutseekBar);
       layout.addView(seekBar);
 
       // Start a thread to convert gif
@@ -151,10 +156,10 @@ public class VideoViewFragment extends Fragment {
                   Matcher m = p.matcher(shellLine);
                   if (m.find()) {
                     MenuActivity.clip.length = getTimelen(m.group(1));
-                    lastEndSec=MenuActivity.clip.length;
+                    lastEndSec = MenuActivity.clip.length;
                     seekBar.setAbsoluteMaxValue(MenuActivity.clip.length);
-                    
-                    
+
+
                     Log.d("find Duration",
                         m.group(1) + " " + String.valueOf(MenuActivity.clip.length));
                   }
@@ -322,19 +327,17 @@ public class VideoViewFragment extends Fragment {
                       // turn; String can't do
                       // this.
                       double currTime = getTimelen(m.group(2));
-                      int convertPrecent=0;
+                      int convertPrecent = 0;
                       if (MenuActivity.clip.duration > 0)
-                        convertPrecent =
-                            (int) (currTime * 100 / MenuActivity.clip.duration);
+                        convertPrecent = (int) (currTime * 100 / MenuActivity.clip.duration);
                       else
-                        convertPrecent =
-                            (int) (currTime * 100 / MenuActivity.clip.length);
+                        convertPrecent = (int) (currTime * 100 / MenuActivity.clip.length);
 
                       if (convertPrecent >= 100)
                         MenuActivity.clip.convertPrecent = 99;
                       else
-                        MenuActivity.clip.convertPrecent=convertPrecent;
-                      
+                        MenuActivity.clip.convertPrecent = convertPrecent;
+
                       Log.d("curr Duration", m.group(2) + "  +" + MenuActivity.clip.convertPrecent
                           + "%");
                     }
