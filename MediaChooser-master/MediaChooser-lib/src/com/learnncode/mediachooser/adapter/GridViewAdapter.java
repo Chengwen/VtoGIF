@@ -84,7 +84,7 @@ public class GridViewAdapter extends ArrayAdapter<MediaModel> {
 			holder = new ViewHolder();
 			holder.checkBoxTextView   = (CheckedTextView) convertView.findViewById(R.id.checkTextViewFromMediaChooserGridItemRowView);
 			holder.imageView          = (ImageView) convertView.findViewById(R.id.imageViewFromMediaChooserGridItemRowView);
-
+			//holder.imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
 			convertView.setTag(holder);
 
 		} else {
