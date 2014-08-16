@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class ImageViewFragment extends Fragment {
@@ -31,6 +32,7 @@ public class ImageViewFragment extends Fragment {
 	private GifImageView gifimage;
 	private Button deletebtn;
 	private Button cancelbtn;
+	private TextView imageinfo;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +42,9 @@ public class ImageViewFragment extends Fragment {
 
 		gifimage = (GifImageView) parentView
 				.findViewById(R.id.gifimage);
+		
+		imageinfo= (TextView) parentView
+            .findViewById(R.id.imageinfo);
 		if (MenuActivity.imageURL != null) {
 			Log.e("MenuActivity.imageURL",MenuActivity.imageURL);
 			try {
@@ -50,7 +55,7 @@ public class ImageViewFragment extends Fragment {
 		        File dF = new File(MenuActivity.imageURL); 
 		        
 		        String out=String.format("%.3f", ((double)dF.length())/1024/1024)+" MB - "+gifFromFd.getIntrinsicWidth()+"x"+gifFromFd.getIntrinsicHeight();
-		        Log.d("output ",out);
+		        imageinfo.setText(out);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
