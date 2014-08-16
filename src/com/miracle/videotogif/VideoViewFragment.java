@@ -75,7 +75,6 @@ public class VideoViewFragment extends Fragment {
       mController = new MediaController(MenuActivity.mContext);
       videoView1.setMediaController(mController);
 
-
       MenuActivity.clip = new Clip();
       MenuActivity.clip.path = MenuActivity.videoURL;
 
@@ -165,7 +164,7 @@ public class VideoViewFragment extends Fragment {
 
                   String regexDuration = "Duration: (.*?), start: (.*?), bitrate: (\\d*) kb\\/s";
                   String regexVideo = "Video: (.*?), (.*?), (.*?)[,\\s]";
-                  String regexRotate = "rotate(.*?): (\\d*)";
+                  String regexRotate = "rotate(.*?): (\\d*                      `)";
 
                   Pattern p = Pattern.compile(regexDuration);
                   Matcher m = p.matcher(shellLine);
@@ -199,8 +198,13 @@ public class VideoViewFragment extends Fragment {
                   Matcher m1 = p1.matcher(shellLine);
                   if (m1.find()) {
                     String strs[] = m1.group(3).split("x");
-                    MenuActivity.clip.width = Integer.parseInt(strs[0]);
-                    MenuActivity.clip.height = Integer.parseInt(strs[1]);
+                    try {
+                      MenuActivity.clip.width = Integer.parseInt(strs[0]);
+                      MenuActivity.clip.height = Integer.parseInt(strs[1]);
+                    } catch (Exception ex) {
+                      MenuActivity.clip.width = videoView1.getWidth();
+                      MenuActivity.clip.height = videoView1.getHeight();
+                    }
 
                     float ratiowidth = (float) MenuActivity.clip.width / 450.0f;
                     float ratioheight = (float) MenuActivity.clip.height / 338.0f;
@@ -208,9 +212,14 @@ public class VideoViewFragment extends Fragment {
                     if (ratiowidth < ratioheight) {
                       ratio = ratioheight;
                     }
-
-                    MenuActivity.clip.newHeight = (int) ((float) MenuActivity.clip.height / ratio);
-                    MenuActivity.clip.newWidth = (int) ((float) MenuActivity.clip.width / ratio);
+                    if (MenuActivity.clip.width < 450 && MenuActivity.clip.height < 338) {
+                      MenuActivity.clip.newHeight = MenuActivity.clip.height;
+                      MenuActivity.clip.newWidth = MenuActivity.clip.width;
+                    } else {
+                      MenuActivity.clip.newHeight =
+                          (int) ((float) MenuActivity.clip.height / ratio);
+                      MenuActivity.clip.newWidth = (int) ((float) MenuActivity.clip.width / ratio);
+                    }
 
                     Log.d(
                         "find Video ",

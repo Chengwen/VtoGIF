@@ -153,9 +153,9 @@ public class ImageFragment extends Fragment {
 
 		File file = new File(outputPath);
 		File[] files = file.listFiles();
-
-		for (File fileTemp : files) {
-			MediaModel galleryModel = new MediaModel(fileTemp.getPath(), false);
+		
+		for (int i=files.length-1;i>=0;i--) {
+			MediaModel galleryModel = new MediaModel(files[i].getPath(), false);
 			mGalleryModelList.add(galleryModel);
 
 		}
