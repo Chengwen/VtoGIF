@@ -28,6 +28,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
+import android.widget.ScrollView;
 import android.widget.VideoView;
 
 public class VideoViewFragment extends Fragment {
@@ -99,7 +100,7 @@ public class VideoViewFragment extends Fragment {
       });
 
       // add RangeSeekBar to pre-defined layout
-      LinearLayout layout = (LinearLayout) parentView.findViewById(R.id.linearLayoutvideo);
+      LinearLayout layout = (LinearLayout) parentView.findViewById(R.id.moreLinearLayout1);
       layout.addView(seekBar);
 
       // Start a thread to convert gif
