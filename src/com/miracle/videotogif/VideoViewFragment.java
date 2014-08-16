@@ -63,7 +63,7 @@ public class VideoViewFragment extends Fragment {
     
     TextView textViewEnd=(TextView) parentView.findViewById(R.id.textViewEnd);
     textViewEnd.setText(R.string.end);
-    textViewEnd.setText(textViewStart.getText()+":");
+    textViewEnd.setText(textViewEnd.getText()+":");
     
     
     if (MenuActivity.videoURL != null) {
@@ -71,9 +71,8 @@ public class VideoViewFragment extends Fragment {
       videoView1.setVideoPath(MenuActivity.videoURL);
       videoView1.start();
 
-      MediaController mController = new MediaController(MenuActivity.mContext);
+      mController = new MediaController(MenuActivity.mContext);
       videoView1.setMediaController(mController);
-      mController.show();
 
 
       MenuActivity.clip = new Clip();
@@ -173,6 +172,12 @@ public class VideoViewFragment extends Fragment {
                     lastEndSec = MenuActivity.clip.length;
                     seekBar.setAbsoluteMaxValue(MenuActivity.clip.length);
 
+                    textViewStartValue.getHandler().post(new Runnable() {
+                        public void run() {
+                          mController.show();
+                        } 
+                    });
+                    
                     textViewStartValue.getHandler().post(new Runnable() {
                         public void run() {
                           textViewStartValue.setText(getTimeFromDouble(0));
@@ -336,7 +341,7 @@ public class VideoViewFragment extends Fragment {
                   sleep(50);
                 }
                 Log.d("ConvertToGIF", "start ,rotate" + String.valueOf(MenuActivity.clip.rotate));
-                fc.ConvertToGIF(MenuActivity.clip, 10,
+                fc.ConvertToGIF(MenuActivity.clip, 6,
 
                 new ShellUtils.ShellCallback() {
 
