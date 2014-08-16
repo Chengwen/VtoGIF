@@ -56,19 +56,7 @@ public class VideoViewFragment extends Fragment {
 
       MediaController mController = new MediaController(MenuActivity.mContext);
       videoView1.setMediaController(mController);
-      //View videoControlView=(View)parentView.findViewById(R.id.videoControlView);
-      //mController.setAnchorView(videoControlView);
-      //
-      /*
-      mController = (MediaController) parentView.findViewById(R.id.mediaController1);
-      mController.setAnchorView(videoView1);
-      LinearLayout.LayoutParams adParams =
-          new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-              LinearLayout.LayoutParams.WRAP_CONTENT);
-      adParams.gravity = Gravity.CENTER;
-
-      mController.setLayoutParams(adParams);*/
-      //mController.setAnchorView();
+      mController.show();
 
 
       MenuActivity.clip = new Clip();
