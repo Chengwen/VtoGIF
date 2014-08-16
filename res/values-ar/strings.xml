@@ -1,10 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">Video to GIF Converter</string>
     <string name="action_settings">إعدادات</string>
     <string name="share">مشاركة</string>
+    <string name="start">البداية</string>
+    <string name="end">اختتام الدروس</string>
     <string name="video_gif">Video to GIF \n Converter</string>
     <string name="convert">تحويل</string>
+    <string name="select_start">اختر الفيديو لبدء</string>
     <string name="delete">حذف</string>
     <string name="cancel">إلغاء</string>
     <string name="convert_error">Convert Error!</string>
@@ -13,5 +17,8 @@
     <string name="image">Images</string>
     <string name="video_details">Video Details</string>
     <string name="image_details">Image Details</string>
-
+    <string name="limit60">لتحويل الفيديو الذي حددته أكبر من الحد 60 ثانية، يرجى تغييره.</string>
+    <string name="shareTips1">Share GIF on</string>
+    <string name="shareTips2">directly may not showing correctly</string>
+    
 </resources>

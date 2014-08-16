@@ -3,8 +3,11 @@
     <string name="app_name">视频转GIF转换器</string>
     <string name="action_settings">设置</string>
     <string name="share">分享</string>
+    <string name="start"> 开始</string>
+    <string name="end">结束 </string>
     <string name="video_gif">视频转GIF \n 转换器</string>
     <string name="convert">转换</string>
+    <string name="select_start">选择一个视频开始</string>
     <string name="delete">删除</string>
     <string name="cancel">取消</string>
     <string name="convert_error">转换错误！</string>
@@ -13,5 +16,8 @@
     <string name="image">图片</string>
     <string name="video_details">视频详情</string>
     <string name="image_details">图片详情</string>
-
+    <string name="limit60">你选择的视频大于60秒的限制，请重新选择！</string>
+    <string name="shareTips1">分享GIF到</string>
+    <string name="shareTips2">可能无法正确​​显示，可通过其他途径分享。</string>
+    
 </resources>

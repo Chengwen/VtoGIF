@@ -4,9 +4,12 @@
     <string name="action_settings">Impostazioni</string>
     <string name="share">Condividi
 </string>
+    <string name="start">Avvia</string>
+    <string name="end">Fine</string>
     <string name="video_gif">Video to GIF \n Converter</string>
     <string name="convert">Converti
 </string>
+    <string name="select_start">Select a Video to Start</string>
     <string name="delete">Cancellare</string>
     <string name="cancel">Cancellare</string>
     <string name="convert_error">Convert Error!</string>
@@ -15,5 +18,8 @@
     <string name="image">Immagini</string>
     <string name="video_details">Video Details</string>
     <string name="image_details">Dettagli dell\'immagine</string>
-
+    <string name="limit60">The converting video you selected is greater than the 60 seconds limit, please change it.</string>
+    <string name="shareTips1">Share GIF on</string>
+    <string name="shareTips2">directly may not showing correctly</string>
+    
 </resources>

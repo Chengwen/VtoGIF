@@ -3,8 +3,11 @@
     <string name="app_name">GIFコンバータビデオ</string>
     <string name="action_settings">設定</string>
     <string name="share">シェア</string>
+    <string name="start">開始</string>
+    <string name="end">最後</string>
     <string name="video_gif">GIFコンバータビデオ</string>
     <string name="convert">変更</string>
+    <string name="select_start">スタートへのビデオを選択します</string>
     <string name="delete">削除</string>
     <string name="cancel"> キャンセル</string>
     <string name="convert_error">エラーを変換！</string>
@@ -13,5 +16,8 @@
     <string name="image">画像</string>
     <string name="video_details">動画の詳細</string>
     <string name="image_details">画像の詳細</string>
-
+    <string name="limit60">選択した変換ビデオは、60秒の制限よりも大きい場合は、それを変更してください。</string>
+    <string name="shareTips1">シェアGIF上</string>
+    <string name="shareTips2">直接、正しく表示されない可能性</string>
+    
 </resources>

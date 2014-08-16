@@ -3,8 +3,11 @@
     <string name="app_name">Video to GIF Converter</string>
     <string name="action_settings">Настройки</string>
     <string name="share">Поделиться</string>
+    <string name="start">Начать</string>
+    <string name="end">Конец</string>
     <string name="video_gif">Video to GIF \n Converter</string>
     <string name="convert">Convert</string>
+    <string name="select_start">Select a Video to Start</string>
     <string name="delete">Удаление</string>
     <string name="cancel">Отмена</string>
     <string name="convert_error">Convert Error!</string>
@@ -13,5 +16,8 @@
     <string name="image">Изображения</string>
     <string name="video_details">Информация о видео</string>
     <string name="image_details">Image Details</string>
-
+    <string name="limit60">The converting video you selected is greater than the 60 seconds limit, please change it.</string>
+    <string name="shareTips1">Share GIF on</string>
+    <string name="shareTips2">directly may not showing correctly</string>
+    
 </resources>
