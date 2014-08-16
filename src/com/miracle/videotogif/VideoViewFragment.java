@@ -195,7 +195,7 @@ public class VideoViewFragment extends Fragment {
                     MenuActivity.clip.width = Integer.parseInt(strs[0]);
                     MenuActivity.clip.height = Integer.parseInt(strs[1]);
 
-                    float ratiowidth = (float) MenuActivity.clip.width / 640.0f;
+                    float ratiowidth = (float) MenuActivity.clip.width / 480.0f;
                     float ratioheight = (float) MenuActivity.clip.height / 360.0f;
                     float ratio = ratiowidth;
                     if (ratiowidth < ratioheight) {
