@@ -164,7 +164,7 @@ public class VideoViewFragment extends Fragment {
 
                   String regexDuration = "Duration: (.*?), start: (.*?), bitrate: (\\d*) kb\\/s";
                   String regexVideo = "Video: (.*?), (.*?), (.*?)[,\\s]";
-                  String regexRotate = "rotate(.*?): (\\d*                      `)";
+                  String regexRotate = "rotate(.*?): (\\d*)";
 
                   Pattern p = Pattern.compile(regexDuration);
                   Matcher m = p.matcher(shellLine);
