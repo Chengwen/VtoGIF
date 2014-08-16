@@ -23,125 +23,126 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ImageViewFragment extends Fragment {
 
-	private View parentView;
-	private ImageView imageView;
-	private GifImageView gifimage;
-	private Button deletebtn;
-	private Button cancelbtn;
-	private TextView imageinfo;
+  private View parentView;
+  private ImageView imageView;
+  private GifImageView gifimage;
+  private Button deletebtn;
+  private Button cancelbtn;
+  private TextView imageinfo;
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-		parentView = inflater.inflate(R.layout.imageview, container, false);
+    parentView = inflater.inflate(R.layout.imageview, container, false);
 
-		gifimage = (GifImageView) parentView
-				.findViewById(R.id.gifimage);
-		
-		imageinfo= (TextView) parentView
-            .findViewById(R.id.imageinfo);
-		if (MenuActivity.imageURL != null) {
-			Log.e("MenuActivity.imageURL",MenuActivity.imageURL);
-			try {
+    gifimage = (GifImageView) parentView.findViewById(R.id.gifimage);
 
-		        FileDescriptor fd = new RandomAccessFile(MenuActivity.imageURL, "r" ).getFD();
-		        GifDrawable gifFromFd = new GifDrawable( fd );
-		        gifimage.setImageDrawable(gifFromFd);
-		        File dF = new File(MenuActivity.imageURL); 
-		        
-		        String out=String.format("%.3f", ((double)dF.length())/1024/1024)+" MB - "+gifFromFd.getIntrinsicWidth()+"x"+gifFromFd.getIntrinsicHeight();
-		        imageinfo.setText(out);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+    imageinfo = (TextView) parentView.findViewById(R.id.imageinfo);
+    if (MenuActivity.imageURL != null) {
+      Log.e("MenuActivity.imageURL", MenuActivity.imageURL);
+      try {
 
-		cancelbtn = (Button) parentView.findViewById(R.id.cancelbtn);
+        FileDescriptor fd = new RandomAccessFile(MenuActivity.imageURL, "r").getFD();
+        GifDrawable gifFromFd = new GifDrawable(fd);
+        gifimage.setImageDrawable(gifFromFd);
+        File dF = new File(MenuActivity.imageURL);
 
-		cancelbtn.setOnClickListener(new View.OnClickListener() {
+        String out =
+            String.format("%.3f", ((double) dF.length()) / 1024 / 1024) + " MB - "
+                + gifFromFd.getIntrinsicWidth() + "x" + gifFromFd.getIntrinsicHeight();
+        imageinfo.setText(out);
+      } catch (Exception e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    }
 
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
+    cancelbtn = (Button) parentView.findViewById(R.id.cancelbtn);
 
-				imageView.getHandler().post(new Runnable() {
-					public void run() {
-						imageView.setVisibility(View.INVISIBLE);
-					}
-				});
-				deletebtn.getHandler().post(new Runnable() {
-					public void run() {
-						deletebtn.setVisibility(View.INVISIBLE);
-					}
-				});
-				cancelbtn.getHandler().post(new Runnable() {
-					public void run() {
-						cancelbtn.setVisibility(View.INVISIBLE);
-					}
-				});
+    cancelbtn.setOnClickListener(new View.OnClickListener() {
 
-			}
-		});
+      @Override
+      public void onClick(View v) {
+        // TODO Auto-generated method stub
 
-		imageView = (ImageView) parentView.findViewById(R.id.imageMask1);
+        imageView.getHandler().post(new Runnable() {
+          public void run() {
+            imageView.setVisibility(View.INVISIBLE);
+          }
+        });
+        deletebtn.getHandler().post(new Runnable() {
+          public void run() {
+            deletebtn.setVisibility(View.INVISIBLE);
+          }
+        });
+        cancelbtn.getHandler().post(new Runnable() {
+          public void run() {
+            cancelbtn.setVisibility(View.INVISIBLE);
+          }
+        });
 
-		deletebtn = (Button) parentView.findViewById(R.id.deletebtn);
+      }
+    });
 
-		deletebtn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if (MenuActivity.imageURL != null) {
-					File file = new File(MenuActivity.imageURL);
-					file.delete();
-				}
+    imageView = (ImageView) parentView.findViewById(R.id.imageMask1);
 
-				imageView.setVisibility(View.INVISIBLE);
-				deletebtn.setVisibility(View.INVISIBLE);
-				cancelbtn.setVisibility(View.INVISIBLE);
-				//return to image list page
-				MenuActivity.clip=new Clip();
-				MenuActivity.mContext.changeFragment(new ImageFragment(),R.string.image);
-			}
-		});
+    deletebtn = (Button) parentView.findViewById(R.id.deletebtn);
 
-		parentView.findViewById(R.id.delete).setOnClickListener(
-				new View.OnClickListener() {
-					@Override
-					public void onClick(View view) {
+    deletebtn.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (MenuActivity.imageURL != null) {
+          File file = new File(MenuActivity.imageURL);
+          file.delete();
+        }
 
-						imageView.setVisibility(View.VISIBLE);
+        imageView.setVisibility(View.INVISIBLE);
+        deletebtn.setVisibility(View.INVISIBLE);
+        cancelbtn.setVisibility(View.INVISIBLE);
+        // return to image list page
+        MenuActivity.clip = new Clip();
+        MenuActivity.mContext.changeFragment(new ImageFragment(), R.string.image);
+      }
+    });
 
-						deletebtn.setVisibility(View.VISIBLE);
+    parentView.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
 
-						cancelbtn.setVisibility(View.VISIBLE);
+        imageView.setVisibility(View.VISIBLE);
 
-					}
-				});
+        deletebtn.setVisibility(View.VISIBLE);
 
-		// share button listener
-		parentView.findViewById(R.id.share).setOnClickListener(
-				new View.OnClickListener() {
-					@Override
-					public void onClick(View view) {
+        cancelbtn.setVisibility(View.VISIBLE);
 
-						Intent shareIntent = new Intent(Intent.ACTION_SEND);
-						shareIntent.setType("image/gif");
-						Uri uri = Uri.fromFile(new File(
-								MenuActivity.imageURL));
-						shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
-						startActivity(Intent.createChooser(shareIntent,
-								getResources().getText(R.string.share)));
-					}
-				});
+      }
+    });
 
-		return parentView;
+    // share button listener
+    parentView.findViewById(R.id.share).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
 
-	}
+        Toast.makeText(
+            MenuActivity.mContext.getApplicationContext(),
+            MenuActivity.mContext.getString(R.string.shareTips1) + " facebook "
+                + MenuActivity.mContext.getString(R.string.shareTips2), Toast.LENGTH_LONG).show();
+
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("image/gif");
+        Uri uri = Uri.fromFile(new File(MenuActivity.imageURL));
+        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.share)));
+      }
+    });
+
+    return parentView;
+
+  }
 
 }

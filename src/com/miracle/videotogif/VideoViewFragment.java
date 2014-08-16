@@ -32,6 +32,7 @@ import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 public class VideoViewFragment extends Fragment {
@@ -44,7 +45,7 @@ public class VideoViewFragment extends Fragment {
   private double lastEndSec = 0d;
   private TextView textViewStartValue;
   private TextView textViewEndValue;
-  
+
   private static RangeSeekBar<Double> seekBar;
 
   @Override
@@ -54,18 +55,18 @@ public class VideoViewFragment extends Fragment {
 
     videoView1 = (VideoView) parentView.findViewById(R.id.videoView1);
 
-    textViewStartValue=(TextView) parentView.findViewById(R.id.textViewStartValue);
-    textViewEndValue=(TextView) parentView.findViewById(R.id.textViewEndValue);
+    textViewStartValue = (TextView) parentView.findViewById(R.id.textViewStartValue);
+    textViewEndValue = (TextView) parentView.findViewById(R.id.textViewEndValue);
 
-    TextView textViewStart=(TextView) parentView.findViewById(R.id.textViewStart);
+    TextView textViewStart = (TextView) parentView.findViewById(R.id.textViewStart);
     textViewStart.setText(R.string.start);
-    textViewStart.setText(textViewStart.getText()+":");
-    
-    TextView textViewEnd=(TextView) parentView.findViewById(R.id.textViewEnd);
+    textViewStart.setText(textViewStart.getText() + ":");
+
+    TextView textViewEnd = (TextView) parentView.findViewById(R.id.textViewEnd);
     textViewEnd.setText(R.string.end);
-    textViewEnd.setText(textViewEnd.getText()+":");
-    
-    
+    textViewEnd.setText(textViewEnd.getText() + ":");
+
+
     if (MenuActivity.videoURL != null) {
       Log.d("video play", MenuActivity.videoURL);
       videoView1.setVideoPath(MenuActivity.videoURL);
@@ -108,12 +109,13 @@ public class VideoViewFragment extends Fragment {
             public void run() {
               textViewStartValue.setText(MenuActivity.clip.startTime);
             }
-        });
-        textViewEndValue.getHandler().post(new Runnable() {
-          public void run() {
-            textViewEndValue.setText(getTimeFromDouble(getTimelen(MenuActivity.clip.startTime)+MenuActivity.clip.duration));
-          }
-      });
+          });
+          textViewEndValue.getHandler().post(new Runnable() {
+            public void run() {
+              textViewEndValue.setText(getTimeFromDouble(getTimelen(MenuActivity.clip.startTime)
+                  + MenuActivity.clip.duration));
+            }
+          });
         }
       });
 
@@ -173,21 +175,21 @@ public class VideoViewFragment extends Fragment {
                     seekBar.setAbsoluteMaxValue(MenuActivity.clip.length);
 
                     textViewStartValue.getHandler().post(new Runnable() {
-                        public void run() {
-                          mController.show();
-                        } 
+                      public void run() {
+                        mController.show();
+                      }
                     });
-                    
+
                     textViewStartValue.getHandler().post(new Runnable() {
-                        public void run() {
-                          textViewStartValue.setText(getTimeFromDouble(0));
-                        }
+                      public void run() {
+                        textViewStartValue.setText(getTimeFromDouble(0));
+                      }
                     });
                     textViewEndValue.getHandler().post(new Runnable() {
                       public void run() {
                         textViewEndValue.setText(getTimeFromDouble(MenuActivity.clip.length));
                       }
-                  });
+                    });
                     Log.d("find Duration",
                         m.group(1) + " " + String.valueOf(MenuActivity.clip.length));
                   }
@@ -200,8 +202,8 @@ public class VideoViewFragment extends Fragment {
                     MenuActivity.clip.width = Integer.parseInt(strs[0]);
                     MenuActivity.clip.height = Integer.parseInt(strs[1]);
 
-                    float ratiowidth = (float) MenuActivity.clip.width / 480.0f;
-                    float ratioheight = (float) MenuActivity.clip.height / 360.0f;
+                    float ratiowidth = (float) MenuActivity.clip.width / 450.0f;
+                    float ratioheight = (float) MenuActivity.clip.height / 338.0f;
                     float ratio = ratiowidth;
                     if (ratiowidth < ratioheight) {
                       ratio = ratioheight;
@@ -265,8 +267,15 @@ public class VideoViewFragment extends Fragment {
       public void onClick(View view) {
 
         if (MenuActivity.videoURL == null
-            || MenuActivity.clip.convertStatus == MenuActivity.clip.CONVERTING)
+            || MenuActivity.clip.convertStatus == MenuActivity.clip.CONVERTING) {
           return;
+        }
+
+        if (MenuActivity.clip.duration > 60) {
+          Toast.makeText(MenuActivity.mContext.getApplicationContext(), R.string.limit60,
+              Toast.LENGTH_LONG).show();
+          return;
+        }
 
         // show progress wheel
         pw_spinner = (ProgressWheel) parentView.findViewById(R.id.pw_spinner);
@@ -464,7 +473,7 @@ public class VideoViewFragment extends Fragment {
     int hours = (int) timelen / 3600;
     int mintues = (int) (timelen - hours * 3600) / 60;
     double sec = timelen % 60d;
-    out = df.format(hours) + ":" + df.format(mintues) + ":" + df2.format( sec);
+    out = df.format(hours) + ":" + df.format(mintues) + ":" + df2.format(sec);
     return out;
   }
 

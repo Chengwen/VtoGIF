@@ -10,19 +10,17 @@ import com.todddavies.components.progressbar.ProgressWheel;
 
 public class ProgressFragment extends Fragment {
 
-    private View parentView;
+  private View parentView;
 
-	ProgressWheel pw_spinner;
-	
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        parentView = inflater.inflate(R.layout.progress, container, false);
-        
+  ProgressWheel pw_spinner;
 
-		
-        return parentView;
-        
-    }
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    parentView = inflater.inflate(R.layout.progress, container, false);
+
+    return parentView;
+
+  }
 
 
 }
