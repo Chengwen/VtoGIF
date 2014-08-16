@@ -47,6 +47,10 @@ public class ImageViewFragment extends Fragment {
 		        FileDescriptor fd = new RandomAccessFile(MenuActivity.imageURL, "r" ).getFD();
 		        GifDrawable gifFromFd = new GifDrawable( fd );
 		        gifimage.setImageDrawable(gifFromFd);
+		        File dF = new File(MenuActivity.imageURL); 
+		        
+		        String out=String.format("%.3f", ((double)dF.length())/1024/1024)+" MB - "+gifFromFd.getIntrinsicWidth()+"x"+gifFromFd.getIntrinsicHeight();
+		        Log.d("output ",out);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
