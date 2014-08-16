@@ -1,40 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    
-       xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
 
         <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical" 
+        android:background="#E6E6E6">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/relativeLayoutbottom"
             android:layout_centerVertical="true"
-            android:orientation="vertical"
-            android:layout_above="@+id/relativeLayoutbottom" >
-
+            android:orientation="vertical" >
 	       
           <LinearLayout
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_centerVertical="true"
+              android:layout_height="wrap_content"
               android:orientation="vertical"
-            android:layout_above="@+id/textViewFileInfo">
+              android:layout_marginTop="20dp">
               
               <pl.droidsonroids.gif.GifImageView
                   android:id="@+id/gifimage"
                   android:layout_gravity="center"
                   android:layout_width="match_parent"
-                  android:layout_height="fill_parent"
+                  android:layout_height="400dp"
                   android:scaleType="fitCenter"/>
+
+              <TextView
+                  android:id="@+id/imageinfo"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_horizontal"
+                  android:layout_marginBottom="50dp"
+                  android:layout_marginTop="10dp"
+                  android:background="#585858"
+                  android:paddingLeft="10dp"
+                  android:paddingRight="10dp"
+                  android:text="Medium Text"
+                  android:textAppearance="?android:attr/textAppearanceMedium"
+                  android:textColor="#ffffff" />
+
               </LinearLayout>
-        </LinearLayout>
+
+        </ScrollView>
 
         <RelativeLayout
             android:id="@+id/relativeLayoutbottom"
