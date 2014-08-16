@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/textViewStartValue"
@@ -68,14 +68,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="" 
-                    android:textSize="18sp"/>
+                    android:textSize="16sp"/>
 
                 <TextView
                     android:id="@+id/textViewEnd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="18sp"/>
+                    android:textSize="16sp"/>
 
                 <TextView
                     android:id="@+id/textViewEndValue"
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="" 
-                    android:textSize="18sp"/>
+                    android:textSize="16sp"/>
 
             </LinearLayout>
             </LinearLayout>

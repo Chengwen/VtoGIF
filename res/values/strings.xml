@@ -17,5 +17,8 @@
     <string name="image">Images</string>
     <string name="video_details">Video Details</string>
     <string name="image_details">Image Details</string>
-
+    <string name="limit60">The converting video you selected is greater than the 60 seconds limit, please change it.</string>
+    <string name="shareTips1">Share GIF on </string>
+    <string name="shareTips2">directly may not showing correctly</string>
+    
 </resources>
