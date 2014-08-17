@@ -198,15 +198,18 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
   }
 
   public void changeFragment(Fragment targetFragment, int title) {
-    TextView t = (TextView) MenuActivity.mContext.findViewById(R.id.title_bar);
-    MenuActivity.mContext.title = title;
+    try {
+      TextView t = (TextView) MenuActivity.mContext.findViewById(R.id.title_bar);
+      MenuActivity.mContext.title = title;
 
-    t.getHandler().post(new Runnable() {
-      public void run() {
-        TextView t = (TextView) MenuActivity.mContext.findViewById(R.id.title_bar);
-        t.setText(MenuActivity.mContext.title);
-      }
-    });
+      t.getHandler().post(new Runnable() {
+        public void run() {
+          TextView t = (TextView) MenuActivity.mContext.findViewById(R.id.title_bar);
+          t.setText(MenuActivity.mContext.title);
+        }
+      });
+    } catch (Exception Ex) {
+    }
 
 
     changeFragment(targetFragment);
