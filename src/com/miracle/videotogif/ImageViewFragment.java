@@ -152,8 +152,6 @@ public class ImageViewFragment extends Fragment {
 		}
 	});
     
-    
-
     return parentView;
 
   }

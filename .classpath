@@ -15,5 +15,9 @@
 	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-Twitter-2.3.12.jar"/>
 	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-Pinterest-2.3.12.jar"/>
 	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-SinaWeibo-2.3.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-Wechat-2.3.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-Wechat-Core-2.3.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-Wechat-Favorite-2.3.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-Wechat-Moments-2.3.12.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
