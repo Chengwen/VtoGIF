@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cn.sharesdk.framework.ShareSDK;
+
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -53,6 +55,9 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     setUpMenu();
     // changeFragment(new VideoFragment());
     changeFragment(new HomeFragment());
+    
+    //ShareSDK
+    ShareSDK.initSDK(this,"2bdb3893adc0");
   }
 
   @Override

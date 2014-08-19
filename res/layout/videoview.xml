@@ -106,8 +106,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
                 android:background="@android:color/transparent"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
                 android:text="@string/convert"
                 android:textColor="#006699"
                 android:textSize="26sp" />

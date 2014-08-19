@@ -10,5 +10,10 @@
 	<classpathentry exported="true" kind="lib" path="libs/google-play-services.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/nineoldandroids-library-2.4.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/picasso-2.3.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-Core-2.3.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-Facebook-2.3.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-Twitter-2.3.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-Pinterest-2.3.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="/ShareSDK/libs/ShareSDK-SinaWeibo-2.3.12.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

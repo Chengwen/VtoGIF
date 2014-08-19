@@ -55,28 +55,35 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@drawable/border"
-            android:orientation="horizontal"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp" >
+            android:orientation="horizontal" >
 
             <ImageButton
                 android:id="@+id/delete"
-                android:layout_width="50dip"
-                android:layout_height="50dip"
+                android:layout_width="55dip"
+                android:layout_height="55dip"
                 android:background="@android:color/transparent"
                 android:paddingLeft="10dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/delete" />
-            
+                android:src="@drawable/ic_action_discard" />
+
              <ImageButton
                  android:id="@+id/share"
-                 android:layout_width="50dip"
-                 android:layout_height="50dip"
+                 android:layout_width="55dip"
+                 android:layout_height="55dip"
                  android:layout_alignParentRight="true"
                  android:background="@android:color/transparent"
                  android:paddingRight="10dp"
                  android:scaleType="centerInside"
-                 android:src="@drawable/sharebutton" />
+                 android:src="@drawable/ic_action_share" />
+             <ImageButton
+                 android:id="@+id/share1"
+                 android:layout_width="55dip"
+                 android:layout_height="55dip"
+                 android:layout_toLeftOf="@id/share"
+                 android:background="#585858"
+                 android:scaleType="centerInside"
+                 android:src="@drawable/ic_action_share" />
+            
 
              </RelativeLayout>
 
