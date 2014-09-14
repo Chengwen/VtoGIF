@@ -148,6 +148,7 @@ public class ImageViewFragment extends Fragment {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			//showOnekeyshare("facebook", false);
+			
 			showOnekeyshare("twitter", false);
 		}
 	});
